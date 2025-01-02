@@ -14,12 +14,16 @@ import OrderStatusPage from "./pages/OrderStatusPage";
 import OrderHistoryPages from "./pages/OrderHistoryPages";
 import UserProfilePage from "./pages/UserProfilePage";
 import PageNotFound from "./pages/PageNotFound";
+import ProductsPage from "./pages/ProductsPage";
+import CollectionsPage from "./pages/CollectionsPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="products" element={<ProductsPage />} />
+        <Route path="collections" element={<CollectionsPage />} />
         <Route path="brands">
           <Route index element={<BrandPage />} />
           <Route path=":brand/models" element={<ModelPage />} />
