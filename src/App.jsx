@@ -17,6 +17,7 @@ import PageNotFound from "./pages/PageNotFound";
 import ProductsPage from "./pages/ProductsPage";
 
 import AppLayout from "./ui/AppLayout";
+import ReturnPolicy from "./pages/ReturnPolicy";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             <Route path=":orderId" element={<OrderStatusPage />} />
           </Route>
           <Route path="profile" element={<UserProfilePage />} />
+          <Route path="return-policy" element={<ReturnPolicy />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />
