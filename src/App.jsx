@@ -15,10 +15,11 @@ import OrderHistoryPages from "./pages/OrderHistoryPages";
 import UserProfilePage from "./pages/UserProfilePage";
 import PageNotFound from "./pages/PageNotFound";
 import ProductsPage from "./pages/ProductsPage";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import ShippingPolicy from "./pages/ShippingPolicy";
+import Faq from "./pages/Faq";
 
 import AppLayout from "./ui/AppLayout";
-import ReturnPolicy from "./pages/ReturnPolicy";
-import TermsAndConditions from "./pages/TermsAndConditions";
 
 function App() {
   return (
@@ -49,8 +50,9 @@ function App() {
             <Route path=":orderId" element={<OrderStatusPage />} />
           </Route>
           <Route path="profile" element={<UserProfilePage />} />
-          <Route path="return-policy" element={<ReturnPolicy />} />
+          <Route path="faq" element={<Faq />} />
           <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="shipping-policy" element={<ShippingPolicy />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

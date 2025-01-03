@@ -26,7 +26,7 @@ function Footer() {
           </Heading>
           <ul className="mx-5 flex flex-col gap-1 text-primary-100">
             <li>
-              <Button to="return-policy">Return Policy</Button>
+              <Button to="faq">FAQ</Button>
             </li>
             <li>
               <Button to="terms-and-conditions">Terms & Conditions</Button>
