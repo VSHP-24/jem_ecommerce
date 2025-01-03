@@ -18,6 +18,7 @@ import ProductsPage from "./pages/ProductsPage";
 
 import AppLayout from "./ui/AppLayout";
 import ReturnPolicy from "./pages/ReturnPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           </Route>
           <Route path="profile" element={<UserProfilePage />} />
           <Route path="return-policy" element={<ReturnPolicy />} />
+          <Route path="terms-and-conditions" element={<TermsAndConditions />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />
