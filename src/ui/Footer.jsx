@@ -1,13 +1,15 @@
-import { NavLink } from "react-router-dom";
 import Heading from "./Heading";
 import Logo from "./Logo";
 import SocialMediaLinks from "./SocialMediaLinks";
 import Copyright from "./Copyright";
+import Button from "./Button";
 
 function Footer() {
   return (
     <footer>
       <div className="flex flex-col gap-10 border-y-2 border-primary-100 py-4 text-base tablet:grid tablet:grid-cols-4 tablet:gap-2">
+        {/* ABOUT JEM INDIA */}
+
         <div className="flex flex-col gap-5 break-words text-primary-100">
           <Logo />
           <p className="mx-5 text-wrap">
@@ -16,22 +18,26 @@ function Footer() {
           </p>
         </div>
 
+        {/* TERMS & POLICIES */}
+
         <div className="flex flex-col gap-5 break-words text-primary-100">
           <Heading as="h4" styles="text-primary-300 font-bold text-2xl mx-5">
             Terms and Policies
           </Heading>
           <ul className="mx-5 flex flex-col gap-1 text-primary-100">
             <li>
-              <NavLink to="return-policy">Return Policy</NavLink>
+              <Button to="return-policy">Return Policy</Button>
             </li>
             <li>
-              <NavLink to="terms-and-conditions">Terms & Conditions</NavLink>
+              <Button to="terms-and-conditions">Terms & Conditions</Button>
             </li>
             <li>
-              <NavLink to="shipping-policy">Shipping Policy</NavLink>
+              <Button to="shipping-policy">Shipping Policy</Button>
             </li>
           </ul>
         </div>
+
+        {/* CONTACT INFORMATIONS */}
 
         <div>
           <Heading as="h4" styles="text-primary-300 font-bold text-2xl mx-5">
@@ -53,8 +59,12 @@ function Footer() {
           </div>
         </div>
 
+        {/* SOCIAL MEDIA LINKS */}
+
         <SocialMediaLinks colors="text-primary-300 mx-5 tablet:mx-0 tablet:pr-10" />
       </div>
+
+      {/* COPYRIGHT */}
 
       <Copyright />
     </footer>
