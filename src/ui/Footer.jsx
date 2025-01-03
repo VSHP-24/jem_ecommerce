@@ -1,0 +1,64 @@
+import { NavLink } from "react-router-dom";
+import Heading from "./Heading";
+import Logo from "./Logo";
+import SocialMediaLinks from "./SocialMediaLinks";
+import Copyright from "./Copyright";
+
+function Footer() {
+  return (
+    <footer>
+      <div className="flex flex-col gap-10 border-y-2 border-primary-100 py-4 text-base tablet:grid tablet:grid-cols-4 tablet:gap-2">
+        <div className="flex flex-col gap-5 break-words text-primary-100">
+          <Logo />
+          <p className="mx-5 text-wrap">
+            JEM Indiaa offers motorcycle accessories for safety, ergonomics, and
+            luggage, designed by motorcycle enthusiasts for adventure.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-5 break-words text-primary-100">
+          <Heading as="h4" styles="text-primary-300 font-bold text-2xl mx-5">
+            Terms and Policies
+          </Heading>
+          <ul className="mx-5 flex flex-col gap-1 text-primary-100">
+            <li>
+              <NavLink to="return-policy">Return Policy</NavLink>
+            </li>
+            <li>
+              <NavLink to="terms-and-conditions">Terms & Conditions</NavLink>
+            </li>
+            <li>
+              <NavLink to="shipping-policy">Shipping Policy</NavLink>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <Heading as="h4" styles="text-primary-300 font-bold text-2xl mx-5">
+            Contact
+          </Heading>
+          <div className="mx-5 text-base font-medium text-primary-100">
+            <span className="text-lg font-bold text-primary-200">
+              Address :{" "}
+            </span>
+            <span>
+              Thandavarayan oil Mill Compound, 406-1, Suramangalam Main Rd, Old
+              Suramangalam, Salem, Tamil Nadu 636005, India
+            </span>
+          </div>
+
+          <div className="mx-5 text-base font-medium text-primary-100">
+            <span className="text-lg font-bold text-primary-200">Phone : </span>
+            <a href="tel:+91 90922 06362">+91 90922 06362</a>
+          </div>
+        </div>
+
+        <SocialMediaLinks colors="text-primary-300 mx-5 tablet:mx-0 tablet:pr-10" />
+      </div>
+
+      <Copyright />
+    </footer>
+  );
+}
+
+export default Footer;
