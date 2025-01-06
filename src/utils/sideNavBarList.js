@@ -17,11 +17,11 @@ const sideNavBarList = [
   },
   {
     label: "About Us",
-    path: "about",
+    path: "about-us",
   },
   {
     label: "Contact Us",
-    path: "contact",
+    path: "contact-us",
   },
 ];
 

@@ -25,13 +25,13 @@ function HomePage() {
       </Heading>
 
       <img
-        src="jembrandimage.png"
+        src="/jembrandimage.png"
         alt="JEM Brand Representation"
         className="object-center laptopS:col-start-2 laptopS:row-start-1 laptopS:row-end-3"
       />
 
       <div className="m-5 flex items-center justify-center gap-5 self-start laptopS:mt-10">
-        <Button variation="secondary" to="about">
+        <Button variation="secondary" to="about-us">
           <p className="align-center justify-center text-xs tablet:text-base laptopS:text-sm laptopL:text-base">
             ABOUT US
           </p>

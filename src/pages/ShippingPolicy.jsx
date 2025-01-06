@@ -2,13 +2,8 @@ import Heading from "../ui/Heading";
 
 function ShippingPolicy() {
   return (
-    <div className="flex flex-col gap-6 px-5 py-10 text-lg tracking-widest text-primary-100 tablet:text-xl">
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        Shipping Policy
-      </Heading>
+    <section className="flex flex-col gap-6 px-5 py-10 text-lg tracking-widest text-primary-100 tablet:text-xl">
+      <Heading as="h2">Shipping Policy</Heading>
       <p>
         JEMINDIAA Industries (“we” “our” and “us”) is the operator of
         (https://jemindiaa.com/) (“Website”), (“you” “they” and “their”) refer
@@ -18,12 +13,7 @@ function ShippingPolicy() {
         and agree upon this arrangement to mutually protect and set expectations
       </p>
 
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        GENERAL
-      </Heading>
+      <Heading as="h2">GENERAL</Heading>
 
       <p>
         Subject to stock availability. We try to maintain accurate stock counts
@@ -45,12 +35,7 @@ function ShippingPolicy() {
         prefer for us to process a cancellation.
       </p>
 
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        ORDER PROCESSING
-      </Heading>
+      <Heading as="h2">ORDER PROCESSING</Heading>
 
       <p>
         As mentioned above, the product(s) may already be ready or it may be
@@ -101,12 +86,7 @@ function ShippingPolicy() {
         to 75% of the order value.
       </p>
 
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        SHIPPING COST - DOMESTICS
-      </Heading>
+      <Heading as="h2">SHIPPING COST - DOMESTICS</Heading>
 
       <p>
         Free shipping by a courier of our choice (may vary from order to order,
@@ -128,12 +108,7 @@ function ShippingPolicy() {
         amount to us.
       </p>
 
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        ORDER FULFILLMENT
-      </Heading>
+      <Heading as="h2">ORDER FULFILLMENT</Heading>
 
       <p>
         JEMINDIAA considers an order fulfilled as soon as it is dispatched. The
@@ -201,12 +176,7 @@ function ShippingPolicy() {
         is unable to deliver the package at the doorstep of the customer.
       </p>
 
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        Transit time – Domestic orders
-      </Heading>
+      <Heading as="h2">Transit time – Domestic orders</Heading>
 
       <p>
         Generally, it takes anywhere from 1 day to 10 days or more for orders to
@@ -220,12 +190,7 @@ function ShippingPolicy() {
         would be able to provide you with an approximate timeline.
       </p>
 
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        Transit time – International orders
-      </Heading>
+      <Heading as="h2">Transit time – International orders</Heading>
 
       <p>
         Generally, orders shipped internationally are in transit for 11 – 15
@@ -291,7 +256,7 @@ function ShippingPolicy() {
         country where you live and you will be responsible for any such
         additional costs or taxes.
       </p>
-    </div>
+    </section>
   );
 }
 

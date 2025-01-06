@@ -2,13 +2,8 @@ import Heading from "../ui/Heading";
 
 function TermsAndConditions() {
   return (
-    <div className="flex flex-col gap-6 px-5 py-10 text-lg tracking-widest text-primary-100 tablet:text-xl">
-      <Heading
-        as="h2"
-        styles="text-3xl tablet:text-4xl font-bold text-primary-300"
-      >
-        Terms and Conditions
-      </Heading>
+    <section className="flex flex-col gap-6 px-5 py-10 text-lg tracking-widest text-primary-100 tablet:text-xl">
+      <Heading as="h2">Terms and Conditions</Heading>
       <p>
         We accept the return of our product only for warranty replacement. We do
         not accept returns for any other reasons such as “I don’t like the
@@ -93,7 +88,7 @@ function TermsAndConditions() {
         feel free to mail us with your question or chat with us on Instagram, we
         will clarify to the best of our knowledge before you order.
       </p>
-    </div>
+    </section>
   );
 }
 

@@ -1,8 +1,10 @@
 import {
   CREATE_NEW_USER_URL,
+  FORGOT_PASSWORD_URL,
   GET_USER_URL,
   LOGIN_URL,
   LOGOUT_URL,
+  RESET_PASSWORD_URL,
 } from "./apiLinks";
 
 /////////////////////////////////////////////////
@@ -52,7 +54,7 @@ export async function logout() {
 }
 
 /////////////////////////////////////////////////
-//           CREATE NEW STAFF
+//           CREATE NEW USER
 /////////////////////////////////////////////////
 
 export async function createNewUser(newUser) {
@@ -64,6 +66,44 @@ export async function createNewUser(newUser) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newUser),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message);
+  return data.data.user;
+}
+
+/////////////////////////////////////////////////
+//           USER FORGOT PASSWORD
+/////////////////////////////////////////////////
+
+export async function forgotPassword(email) {
+  const res = await fetch(FORGOT_PASSWORD_URL, {
+    mode: "cors",
+    credentials: "include",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(email),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message);
+}
+
+/////////////////////////////////////////////////
+//           USER RESET PASSWORD
+/////////////////////////////////////////////////
+
+export async function resetPassword(newPassword) {
+  const currentURL = window.location.href.split("/");
+  const resetToken = currentURL[currentURL.length - 1];
+
+  const res = await fetch(`${RESET_PASSWORD_URL}/${resetToken}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPassword),
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.message);

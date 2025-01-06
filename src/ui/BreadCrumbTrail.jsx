@@ -10,7 +10,7 @@ function BreadCrumbTrail() {
       <Button to="/">HOME</Button>
       <span> {`>`} </span>
       {paths.map((path, i) => {
-        if (!path) return null;
+        if (!path || path.length > 20) return null;
         if (path && i < paths.length - 1) {
           return (
             <Button key={path} to={path}>

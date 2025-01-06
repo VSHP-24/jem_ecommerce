@@ -1,11 +1,12 @@
 import { LuFacebook, LuInstagram, LuYoutube } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
+
 import Heading from "./Heading";
 
 function SocialMediaLinks({ showSidebar, colors = "text-black" }) {
   return (
     <div className={"flex flex-col gap-5 text-2xl font-bold " + colors}>
-      <Heading as="h4">Follow Us</Heading>
+      <Heading as="h6">Follow Us</Heading>
       <div className="flex items-center gap-5 text-3xl">
         <NavLink
           onClick={showSidebar}

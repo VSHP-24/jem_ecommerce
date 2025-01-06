@@ -1,7 +1,9 @@
-import { NavLink } from "react-router-dom";
-import sideNavBarList from "../utils/sideNavBarList";
 import { IoCloseSharp } from "react-icons/io5";
+
 import SocialMediaLinks from "./SocialMediaLinks";
+import Button from "./Button";
+
+import sideNavBarList from "../utils/sideNavBarList";
 
 function SideNavBar({ showSidebar }) {
   return (
@@ -12,10 +14,13 @@ function SideNavBar({ showSidebar }) {
 
       <ul className="flex flex-col gap-8 text-2xl font-medium">
         {sideNavBarList.map((item) => (
-          <li key={item.label} className="text-black">
-            <button onClick={showSidebar}>
-              <NavLink to={item.path}>{item.label}</NavLink>
-            </button>
+          <li
+            key={item.label}
+            className="text-black hover:underline focus:underline active:underline"
+          >
+            <Button to={item.path} onClick={showSidebar}>
+              {item.label}
+            </Button>
           </li>
         ))}
       </ul>

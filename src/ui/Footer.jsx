@@ -21,7 +21,7 @@ function Footer() {
         {/* TERMS & POLICIES */}
 
         <div className="flex flex-col gap-5 break-words text-primary-100">
-          <Heading as="h4" styles="text-primary-300 font-bold text-2xl mx-5">
+          <Heading as="h6" styles="text-primary-300 font-bold text-2xl mx-5">
             Terms and Policies
           </Heading>
           <ul className="mx-5 flex flex-col gap-1 text-primary-100">
@@ -39,8 +39,8 @@ function Footer() {
 
         {/* CONTACT INFORMATIONS */}
 
-        <div>
-          <Heading as="h4" styles="text-primary-300 font-bold text-2xl mx-5">
+        <address className="not-italic">
+          <Heading as="h6" styles="text-primary-300 font-bold text-2xl mx-5">
             Contact
           </Heading>
           <div className="mx-5 text-base font-medium text-primary-100">
@@ -57,7 +57,7 @@ function Footer() {
             <span className="text-lg font-bold text-primary-200">Phone : </span>
             <a href="tel:+91 90922 06362">+91 90922 06362</a>
           </div>
-        </div>
+        </address>
 
         {/* SOCIAL MEDIA LINKS */}
 
