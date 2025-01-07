@@ -10,7 +10,7 @@ function AllBrands() {
       <div className="flex flex-col gap-8">
         <Heading as="h4">Brands</Heading>
 
-        <div className="flex flex-wrap justify-center gap-16">
+        <div className="flex flex-wrap justify-center gap-8">
           {brands.map((brand) => (
             <BrandsDisplayCard key={brand.slug} brand={brand} />
           ))}

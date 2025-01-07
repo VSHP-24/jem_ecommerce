@@ -4,6 +4,10 @@ const sideNavBarList = [
     path: "/",
   },
   {
+    label: "View Collection",
+    path: "collection",
+  },
+  {
     label: "Shop by Products",
     path: "products",
   },

@@ -5,7 +5,7 @@ import Heading from "../ui/Heading";
 
 function AboutUsPage() {
   return (
-    <div className="flex flex-col gap-6 px-5 py-10 text-lg tracking-widest tablet:text-xl">
+    <div className="flex flex-col gap-6 text-lg tracking-widest tablet:text-xl">
       <Heading as="h2">JEM Indiaa</Heading>
 
       <p className="text-primary-100">

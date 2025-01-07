@@ -2,7 +2,7 @@ import Heading from "../ui/Heading";
 
 function TermsAndConditions() {
   return (
-    <section className="flex flex-col gap-6 px-5 py-10 text-lg tracking-widest text-primary-100 tablet:text-xl">
+    <section className="flex flex-col gap-6 text-lg tracking-widest text-primary-100 tablet:text-xl">
       <Heading as="h2">Terms and Conditions</Heading>
       <p>
         We accept the return of our product only for warranty replacement. We do

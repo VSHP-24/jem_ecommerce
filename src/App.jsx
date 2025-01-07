@@ -18,6 +18,7 @@ import OrderHistoryPages from "./pages/OrderHistoryPages";
 import UserProfilePage from "./pages/UserProfilePage";
 import PageNotFound from "./pages/PageNotFound";
 import ProductsPage from "./pages/ProductsPage";
+import CollectionPage from "./pages/CollectionPage";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import Faq from "./pages/Faq";
@@ -45,6 +46,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
 
           <Route element={<AppLayout />}>
+            <Route path="collection" element={<CollectionPage />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="brands">
               <Route index element={<BrandPage />} />

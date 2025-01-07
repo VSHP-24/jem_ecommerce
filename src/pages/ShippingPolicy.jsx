@@ -2,7 +2,7 @@ import Heading from "../ui/Heading";
 
 function ShippingPolicy() {
   return (
-    <section className="flex flex-col gap-6 px-5 py-10 text-lg tracking-widest text-primary-100 tablet:text-xl">
+    <section className="flex flex-col gap-6 text-lg tracking-widest text-primary-100 tablet:text-xl">
       <Heading as="h2">Shipping Policy</Heading>
       <p>
         JEMINDIAA Industries (“we” “our” and “us”) is the operator of

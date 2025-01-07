@@ -3,7 +3,7 @@ import Heading from "../ui/Heading";
 
 function HomePage() {
   return (
-    <main className="grid h-dvh w-dvw grid-rows-[1fr_1fr_5rem] place-items-center overflow-clip p-6 laptopS:grid-cols-2 laptopS:grid-rows-2">
+    <main className="grid h-dvh w-dvw max-w-[40rem] grid-rows-[1fr_1fr_5rem] place-items-center justify-self-center overflow-clip p-6 tablet:max-w-[50rem] laptopS:grid-cols-2 laptopS:grid-rows-2 laptopL:max-w-[90rem] desktop:max-w-[100rem]">
       <Heading
         as="h1"
         styles="self-center p-10 text-center text-xs font-normal uppercase leading-loose tracking-widest text-white mobile:text-sm tablet:text-lg laptopS:place-self-end laptopS:text-xl"
@@ -31,9 +31,9 @@ function HomePage() {
       />
 
       <div className="m-5 flex items-center justify-center gap-5 self-start laptopS:mt-10">
-        <Button variation="secondary" to="about-us">
+        <Button variation="secondary" to="collection">
           <p className="align-center justify-center text-xs tablet:text-base laptopS:text-sm laptopL:text-base">
-            ABOUT US
+            VIEW COLLECTION
           </p>
         </Button>
 

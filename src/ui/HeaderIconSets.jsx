@@ -51,7 +51,7 @@ function HeaderIconSets() {
 
       {/* RESPONSIVE NAVBAR ICON APPEARS ONLY FOR MOBILE DEVICES */}
       {!expanded && (
-        <button className="tablet:hidden" onClick={showSidebar}>
+        <button className="laptopL:hidden" onClick={showSidebar}>
           <RxHamburgerMenu />
         </button>
       )}

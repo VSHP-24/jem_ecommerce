@@ -7,7 +7,7 @@ import sideNavBarList from "../utils/sideNavBarList";
 
 function SideNavBar({ showSidebar }) {
   return (
-    <div className="absolute left-0 top-0 z-30 flex h-full w-full translate-y-0 flex-col items-start gap-20 bg-primary-300 p-10 transition tablet:hidden">
+    <div className="absolute left-0 top-0 z-30 flex h-full w-full translate-y-0 flex-col items-start gap-20 bg-primary-300 p-10 transition laptopL:hidden">
       <button className="self-end text-3xl text-black" onClick={showSidebar}>
         <IoCloseSharp />
       </button>

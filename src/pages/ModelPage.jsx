@@ -1,5 +1,7 @@
+import Bikes from "../features/bikemodels/Bikes";
+
 function ModelPage() {
-  return <div>Bike Models</div>;
+  return <Bikes />;
 }
 
 export default ModelPage;

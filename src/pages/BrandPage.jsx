@@ -1,11 +1,7 @@
 import AllBrands from "../features/brands/AllBrands";
 
 function BrandPage() {
-  return (
-    <div>
-      <AllBrands />
-    </div>
-  );
+  return <AllBrands />;
 }
 
 export default BrandPage;
