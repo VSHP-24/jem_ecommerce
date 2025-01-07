@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -50,10 +50,18 @@ function App() {
             <Route path="products" element={<ProductsPage />} />
             <Route path="brands">
               <Route index element={<BrandPage />} />
+              <Route
+                path=":brand"
+                element={<Navigate to="/brands" replace />}
+              />
               <Route path=":brand/models" element={<ModelPage />} />
             </Route>
             <Route path="categories">
               <Route index element={<CategoryPage />} />
+              <Route
+                path=":category"
+                element={<Navigate to="/categories" replace />}
+              />
               <Route
                 path=":category/subcategories"
                 element={<SubCategoryPage />}
@@ -66,6 +74,10 @@ function App() {
               <Route
                 path="reset-password/:resetToken"
                 element={<ResetPasswordPage />}
+              />
+              <Route
+                path="reset-password"
+                element={<Navigate to="/forgot-password" replace />}
               />
               <Route path="new-customer" element={<CreateNewUserPage />} />
 

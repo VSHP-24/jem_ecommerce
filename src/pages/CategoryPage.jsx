@@ -1,5 +1,7 @@
+import AllCategories from "../features/categories/AllCategories";
+
 function CategoryPage() {
-  return <div>Categories</div>;
+  return <AllCategories />;
 }
 
 export default CategoryPage;
