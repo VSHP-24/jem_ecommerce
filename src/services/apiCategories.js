@@ -1,8 +1,8 @@
+import { CATEGORIES_URL } from "./apiLinks";
+
 /////////////////////////////////////////////////
 //           FETCHES ALL THE CATEGORIES
 /////////////////////////////////////////////////
-
-import { CATEGORIES_URL } from "./apiLinks";
 
 export async function getCategories() {
   const res = await fetch(CATEGORIES_URL);

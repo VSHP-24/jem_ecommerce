@@ -1,5 +1,7 @@
+import SubCategories from "../features/subCategories/SubCategories";
+
 function SubCategoryPage() {
-  return <div>SubCategories</div>;
+  return <SubCategories />;
 }
 
 export default SubCategoryPage;

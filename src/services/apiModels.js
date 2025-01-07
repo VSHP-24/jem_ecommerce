@@ -1,8 +1,8 @@
+import { MODELS_URL } from "./apiLinks";
+
 /////////////////////////////////////////////////
 //           FETCHES ALL THE MODELS
 /////////////////////////////////////////////////
-
-import { MODELS_URL } from "./apiLinks";
 
 export async function getModels() {
   const res = await fetch(MODELS_URL);
