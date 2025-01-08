@@ -20,7 +20,7 @@ function Footer() {
 
         {/* TERMS & POLICIES */}
 
-        <div className="flex flex-col gap-5 break-words text-primary-100">
+        <div className="flex flex-col gap-2 break-words text-primary-100">
           <Heading as="h6" styles="text-primary-300 font-bold text-2xl mx-5">
             Terms and Policies
           </Heading>

@@ -25,6 +25,8 @@ import Faq from "./pages/Faq";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import CreateNewUserPage from "./pages/CreateNewUserPage";
+import ModelProductsPage from "./pages/ModelProductsPage";
+import SubCategoryProductsPage from "./pages/SubCategoryProductsPage";
 
 import AppLayout from "./ui/AppLayout";
 import AuthLayout from "./ui/AuthLayout";
@@ -55,6 +57,10 @@ function App() {
                 element={<Navigate to="/brands" replace />}
               />
               <Route path=":brand/models" element={<ModelPage />} />
+              <Route
+                path=":brand/models/:model"
+                element={<ModelProductsPage />}
+              />
             </Route>
             <Route path="categories">
               <Route index element={<CategoryPage />} />
@@ -65,6 +71,10 @@ function App() {
               <Route
                 path=":category/subcategories"
                 element={<SubCategoryPage />}
+              />
+              <Route
+                path=":category/subcategories/:subcategory"
+                element={<SubCategoryProductsPage />}
               />
             </Route>
 

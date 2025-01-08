@@ -1,7 +1,7 @@
 import AllProducts from "../features/products/AllProducts";
 
-function ProductsPage() {
+function ModelProductsPage() {
   return <AllProducts />;
 }
 
-export default ProductsPage;
+export default ModelProductsPage;

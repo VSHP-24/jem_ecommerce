@@ -9,22 +9,25 @@ function Button({
   to,
 }) {
   const base =
-    "inline-block text-sm rounded-full font-bold uppercase transition-colors duration-150 h-full p-2 focus:outline-none focus:ring focus:ring-offset-2 disabled:cursor-not-allowed hover:-translate-y-1 hover:scale-110 focus:ring active:scale-110 transition ease-in-out  " +
+    "inline-block rounded-full font-bold uppercase transition-colors duration-150 p-2 transition ease-in-out     hover:scale-110  " +
     additionalStyles;
 
   const variations = {
     primary:
-      base +
-      "  bg-primary-400 hover:bg-primary-600 active:bg-primary-600 focus:bg-primary-600 focus:ring-primary-600",
+      base + "  bg-primary-400 hover:bg-primary-600 focus:bg-primary-600 ",
     secondary:
       base +
-      " bg-primary-100/40 hover:bg-primary-100/70 focus:bg-primary-100/70 focus:ring-primary-100/70 ",
+      " bg-primary-100/40 hover:bg-primary-100/70 focus:bg-primary-100/70 ",
   };
 
   // IF TO EXISTS IT RETURNS A LINK BUTTON
   if (to)
     return (
-      <NavLink to={to} onClick={onClick} className={variations[variation]}>
+      <NavLink
+        to={to}
+        onClick={onClick}
+        className={base + `${variation ? variations[variation] : " "}`}
+      >
         {children}
       </NavLink>
     );
@@ -32,7 +35,7 @@ function Button({
   // IF TO DOESN'T EXIST IT RETURNS A NORMAL BUTTON
   return (
     <button
-      className={variations[variation]}
+      className={base + `${variation ? variations[variation] : " "}`}
       disabled={disabled}
       onClick={onClick}
     >

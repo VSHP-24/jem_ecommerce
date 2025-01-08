@@ -10,7 +10,7 @@ function AppLayout() {
       <Header />
       <NavBar />
       <BreadCrumbTrail />
-      <main className="m-5">
+      <main className="m-5 mb-10">
         <div className="mx-auto my-0">
           <Outlet />
         </div>
