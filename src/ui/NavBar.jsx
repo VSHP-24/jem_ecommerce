@@ -5,7 +5,7 @@ function NavBar() {
     " rounded-full hover:bg-primary-400 hover:text-black  shadow-none shadow-black  ";
 
   return (
-    <div className="hidden content-center laptopL:inline laptopL:border-b-2 laptopL:border-primary-100 laptopL:text-primary-400">
+    <div className="hidden content-center laptopL:sticky laptopL:top-20 laptopL:inline laptopL:border-b-2 laptopL:border-primary-100 laptopL:bg-stone-950 laptopL:text-primary-400">
       <ul className="flex justify-evenly text-xl font-medium desktop:text-2xl">
         <li className="">
           <Button additionalStyles={buttonAdditionalStyles} to="collection">

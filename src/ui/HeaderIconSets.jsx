@@ -10,9 +10,11 @@ import SideNavBar from "./SideNavBar";
 import Button from "./Button";
 
 import { useLogout } from "../features/authentication/useLogout";
+import { getTotalCartQuantity } from "../features/cart/cartSlice";
 
 function HeaderIconSets() {
   const [expanded, setExpanded] = useState(false);
+  const totalCartQuantity = useSelector(getTotalCartQuantity);
 
   const user = useSelector((state) => state.user.id);
   const { logout, isPending } = useLogout();
@@ -22,13 +24,16 @@ function HeaderIconSets() {
   return (
     <nav className="flex gap-5 p-4 text-3xl text-primary-300">
       <NavLink
-        to="checkout"
+        to="cart"
         className="relative flex h-10 w-10 items-center justify-center"
       >
         <HiOutlineShoppingCart />
-        <span className="absolute left-1/2 top-2/3 flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-sm font-extrabold">
-          0
-        </span>
+
+        {totalCartQuantity !== 0 && (
+          <span className="absolute left-1/2 top-2/3 flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-sm font-extrabold">
+            {totalCartQuantity}
+          </span>
+        )}
       </NavLink>
 
       {user && (

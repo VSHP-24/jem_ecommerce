@@ -30,6 +30,7 @@ import SubCategoryProductsPage from "./pages/SubCategoryProductsPage";
 
 import AppLayout from "./ui/AppLayout";
 import AuthLayout from "./ui/AuthLayout";
+import CartPage from "./pages/CartPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -77,22 +78,7 @@ function App() {
                 element={<SubCategoryProductsPage />}
               />
             </Route>
-
-            <Route element={<AuthLayout />}>
-              <Route path="login" element={<LoginPage />} />
-              <Route path="forgot-password" element={<ForgotPasswordPage />} />
-              <Route
-                path="reset-password/:resetToken"
-                element={<ResetPasswordPage />}
-              />
-              <Route
-                path="reset-password"
-                element={<Navigate to="/forgot-password" replace />}
-              />
-              <Route path="new-customer" element={<CreateNewUserPage />} />
-
-              <Route path="login" element={<LoginPage />} />
-            </Route>
+            <Route path="cart" element={<CartPage />} />
 
             <Route path="about-us" element={<AboutUsPage />} />
             <Route path="contact-us" element={<ContactUsPage />} />
@@ -110,6 +96,22 @@ function App() {
               element={<TermsAndConditions />}
             />
             <Route path="shipping-policy" element={<ShippingPolicy />} />
+
+            <Route element={<AuthLayout />}>
+              <Route path="login" element={<LoginPage />} />
+              <Route path="forgot-password" element={<ForgotPasswordPage />} />
+              <Route
+                path="reset-password/:resetToken"
+                element={<ResetPasswordPage />}
+              />
+              <Route
+                path="reset-password"
+                element={<Navigate to="/forgot-password" replace />}
+              />
+              <Route path="new-customer" element={<CreateNewUserPage />} />
+
+              <Route path="login" element={<LoginPage />} />
+            </Route>
           </Route>
 
           <Route path="*" element={<PageNotFound />} />
