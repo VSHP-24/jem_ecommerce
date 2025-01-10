@@ -11,9 +11,12 @@ function AllBrands() {
         <Heading as="h4">Brands</Heading>
 
         <div className="flex flex-wrap justify-center gap-8">
-          {brands.map((brand) => (
-            <BrandsDisplayCard key={brand.slug} brand={brand} />
-          ))}
+          {brands.map(
+            (brand) =>
+              brand.products.length > 0 && (
+                <BrandsDisplayCard key={brand.slug} brand={brand} />
+              ),
+          )}
         </div>
       </div>
     );

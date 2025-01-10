@@ -11,9 +11,15 @@ function AllCategories() {
         <Heading as="h4">Categories</Heading>
 
         <div className="flex flex-wrap justify-center gap-8">
-          {categories.map((category) => (
-            <CategoriesDisplayCard key={category.slug} category={category} />
-          ))}
+          {categories.map(
+            (category) =>
+              category.products.length > 0 && (
+                <CategoriesDisplayCard
+                  key={category.slug}
+                  category={category}
+                />
+              ),
+          )}
         </div>
       </div>
     );

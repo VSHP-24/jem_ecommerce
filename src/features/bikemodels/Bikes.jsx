@@ -18,6 +18,7 @@ function AllBrands() {
           {brand &&
             models.map(
               (model) =>
+                model.products.length > 0 &&
                 model.brand.slug === brand && (
                   <BikesDisplayCard key={model.slug} model={model} />
                 ),
@@ -26,9 +27,12 @@ function AllBrands() {
           {/* IF BRAND IS NOT SELECTED / NOT-AVAILABLE */}
 
           {!brand &&
-            models.map((model) => (
-              <BikesDisplayCard key={model.slug} model={model} />
-            ))}
+            models.map(
+              (model) =>
+                model.products.length > 0 && (
+                  <BikesDisplayCard key={model.slug} model={model} />
+                ),
+            )}
         </div>
       </div>
     );

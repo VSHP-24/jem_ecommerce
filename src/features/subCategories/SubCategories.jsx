@@ -18,6 +18,7 @@ function SubCategories() {
           {category &&
             subCategories.map(
               (subCategory) =>
+                subCategory.products.length > 0 &&
                 subCategory.category.slug === category && (
                   <SubCategoryDisplayCard
                     key={subCategory.slug}
@@ -29,12 +30,15 @@ function SubCategories() {
           {/* IF CATEGORY IS NOT SELECTED / NOT-AVAILABLE */}
 
           {!category &&
-            subCategories.map((subCategory) => (
-              <SubCategoryDisplayCard
-                key={subCategory.slug}
-                subCategory={subCategory}
-              />
-            ))}
+            subCategories.map(
+              (subCategory) =>
+                subCategory.products.length > 0 && (
+                  <SubCategoryDisplayCard
+                    key={subCategory.slug}
+                    subCategory={subCategory}
+                  />
+                ),
+            )}
         </div>
       </div>
     );

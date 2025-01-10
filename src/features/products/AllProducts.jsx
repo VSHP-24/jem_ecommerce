@@ -7,7 +7,7 @@ function AllProducts() {
   const { isPending, products } = useGetProducts();
   const { brand, model, category, subcategory } = useParams();
 
-  if (!isPending)
+  if (!isPending && products.length > 0)
     return (
       <div className="flex flex-col gap-8">
         <Heading as="h4">Products</Heading>
@@ -22,26 +22,15 @@ function AllProducts() {
               <ProductsDisplayCard key={product.slug} product={product} />
             ))}
 
-          {/* FILTERS SELECTED BRAND AND BIKE MODEL PRODUCTS ONLY */}
+          {/* SELECTED BRAND AND BIKE MODEL OR SELECTED CATEGORY AND SUBCATEGORY PRODUCTS ONLY */}
 
-          {brand &&
-            model &&
+          {((brand && model) || (category && subcategory)) &&
             products.map(
               (product) =>
-                product.brand.slug === brand &&
-                product.model.slug === model && (
-                  <ProductsDisplayCard key={product.slug} product={product} />
-                ),
-            )}
-
-          {/* FILTERS SELECTED CATEGORY AND SUBCATEGORY PRODUCTS ONLY */}
-
-          {category &&
-            subcategory &&
-            products.map(
-              (product) =>
-                product.category.slug === category &&
-                product.subCategory.slug === subcategory && (
+                ((product.brand.slug === brand &&
+                  product.model.slug === model) ||
+                  (product.category.slug === category &&
+                    product.subCategory.slug === subcategory)) && (
                   <ProductsDisplayCard key={product.slug} product={product} />
                 ),
             )}
