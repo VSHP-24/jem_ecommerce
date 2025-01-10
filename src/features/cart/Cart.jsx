@@ -1,12 +1,14 @@
-import { useSelector } from "react-redux";
-import { getCart } from "./cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, getCart } from "./cartSlice";
 import CartRow from "./CartRow";
 import Heading from "../../ui/Heading";
 import OrderSummary from "./OrderSummary";
 import EmptyCart from "./EmptyCart";
+import Button from "../../ui/Button";
 
 function Cart() {
   const cart = useSelector(getCart);
+  const dispatch = useDispatch();
 
   if (cart.length === 0) return <EmptyCart />;
 
@@ -17,10 +19,17 @@ function Cart() {
       </Heading>
 
       <div className="flex flex-col justify-between laptopL:flex-row">
-        <div>
+        <div className="flex flex-col gap-2 pb-4">
           {cart.map((item, i) => (
             <CartRow key={i} item={item} />
           ))}
+          <Button
+            variation="secondary"
+            onClick={() => dispatch(clearCart())}
+            additionalStyles="mt-4 w-36 h-10 text-sm tablet:text-lg tablet:w-44 text-black"
+          >
+            ❌ Clear Cart
+          </Button>
         </div>
         <OrderSummary />
       </div>

@@ -18,6 +18,10 @@ function Button({
     secondary:
       base +
       " bg-primary-100/40 hover:bg-primary-100/70 focus:bg-primary-100/70 ",
+    delete:
+      base +
+      " text-xs bg-red-700 max-w-20 hover:bg-red-800 text-white tablet:text-base ",
+    round: base + " ",
   };
 
   // IF TO EXISTS IT RETURNS A LINK BUTTON

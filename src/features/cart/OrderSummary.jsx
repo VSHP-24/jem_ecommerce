@@ -13,7 +13,7 @@ function OrderSummary() {
   const itemDetails = "text-primary-200";
 
   return (
-    <div className="my-4 mr-4 flex h-full max-w-80 flex-col gap-4 self-center border-2 border-primary-200 px-2 py-4 laptopL:self-start">
+    <div className="my-4 mr-4 flex h-full max-w-80 flex-col gap-4 self-center border-2 border-primary-200 px-2 py-4 shadow-lg shadow-primary-200/40 laptopL:self-start">
       <Heading as="h2">Summary</Heading>
       <div className={itemDetailRow}>
         <Heading as="h6" styles={itemHeaders}>
@@ -43,7 +43,8 @@ function OrderSummary() {
       <Button
         variation="primary"
         to="/checkout"
-        additionalStyles="text-black p-2 self-center"
+        additionalStyles="text-black p-2   text-base self-center"
+        // mt-4 w-32 h-10 text-xs text-black
       >
         Checkout
       </Button>
