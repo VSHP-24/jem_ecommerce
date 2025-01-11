@@ -3,7 +3,7 @@ import Heading from "../../ui/Heading";
 import BikesDisplayCard from "./BikesDisplayCard";
 import { useGetModels } from "./useGetModels";
 
-function AllBrands() {
+function Bikes() {
   const { isPending, models } = useGetModels();
   const { brand } = useParams();
 
@@ -52,4 +52,4 @@ function AllBrands() {
     );
 }
 
-export default AllBrands;
+export default Bikes;
