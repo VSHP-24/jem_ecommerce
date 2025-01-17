@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../ui/Button";
 import Heading from "../../ui/Heading";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
+
 import DeleteItem from "../cart/DeleteItem";
 import UpdateItemQuantity from "../cart/UpdateItemQuantity";
+
+import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
+import { calculateOfferPercentage, formatCurrency } from "../../utils/helpers";
 
 function ProductsDisplayCard({ product }) {
   const navigate = useNavigate();
@@ -22,7 +25,6 @@ function ProductsDisplayCard({ product }) {
     discountPrice,
     slug,
     mainImage,
-    // additionalImages,
   } = product;
 
   const currentQuantity = useSelector(getCurrentQuantityById(id));
@@ -52,12 +54,18 @@ function ProductsDisplayCard({ product }) {
       onClick={(e) =>
         e.target.localName !== "button" && navigate(`/products/${slug}`)
       }
-      className="grid cursor-pointer grid-cols-[15rem] grid-rows-[1fr_1fr] justify-items-center gap-2 border-2 border-primary-400 p-4 hover:shadow-lg hover:shadow-primary-500"
+      className="relative grid cursor-pointer grid-cols-[15rem] grid-rows-[1fr_1fr] justify-items-center gap-2 border-2 border-primary-400 p-4 hover:shadow-lg hover:shadow-primary-500"
     >
       {/* PRODUCT IMAGE */}
       <div className="bg-primary-200">
         <img className="h-60 w-60" src={mainImage} alt={`${name}`} />
       </div>
+
+      {discountPrice && (
+        <div className="absolute left-5 top-5 rounded-full bg-green-500 p-2 text-base font-bold">
+          {calculateOfferPercentage(price, discountPrice)}% OFF
+        </div>
+      )}
 
       <div className="m-2 flex flex-col justify-between gap-2 text-primary-200">
         <Heading
@@ -71,12 +79,16 @@ function ProductsDisplayCard({ product }) {
           {name} | JEM{" "}
         </Heading>
 
-        {!discountPrice && <p className="text-lg font-bold">₹ {price}</p>}
+        {!discountPrice && (
+          <p className="text-lg font-bold"> {formatCurrency(price)} </p>
+        )}
 
         {discountPrice && (
           <div className="flex gap-2 text-lg font-bold">
-            <p>₹ {discountPrice}</p>
-            <span className="text-primary-400/50 line-through">₹ {price}</span>
+            <p> {formatCurrency(discountPrice)}</p>
+            <span className="text-primary-400/50 line-through">
+              {formatCurrency(price)}
+            </span>
           </div>
         )}
 

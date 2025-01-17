@@ -1,5 +1,7 @@
+import ProductDP from "../features/products/ProductDP";
+
 function ProductDetailPage() {
-  return <div>Product</div>;
+  return <ProductDP />;
 }
 
 export default ProductDetailPage;
