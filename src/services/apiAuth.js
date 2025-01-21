@@ -35,7 +35,6 @@ export async function getCurrentUser() {
     credentials: "include",
   });
   const data = await res.json();
-  console.log("getcurrentuser", data);
   if (!res.ok) throw new Error(data.message);
   return data.data.data;
 }

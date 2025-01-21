@@ -31,6 +31,7 @@ import SubCategoryProductsPage from "./pages/SubCategoryProductsPage";
 import AppLayout from "./ui/AppLayout";
 import AuthLayout from "./ui/AuthLayout";
 import CartPage from "./pages/CartPage";
+import ProtectedRoutes from "./ui/ProtectedRoutes";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -84,19 +85,22 @@ function App() {
 
             <Route path="about-us" element={<AboutUsPage />} />
             <Route path="contact-us" element={<ContactUsPage />} />
-            <Route path="checkout" element={<CheckOutPage />} />
-            <Route path="orders">
-              <Route index element={<OrderHistoryPages />} />
-              <Route path=":orderId" element={<OrderStatusPage />} />
-            </Route>
 
-            <Route path="profile" element={<UserProfilePage />} />
             <Route path="faq" element={<Faq />} />
             <Route
               path="terms-and-conditions"
               element={<TermsAndConditions />}
             />
             <Route path="shipping-policy" element={<ShippingPolicy />} />
+
+            <Route element={<ProtectedRoutes />}>
+              <Route path="profile" element={<UserProfilePage />} />
+              <Route path="checkout" element={<CheckOutPage />} />
+              <Route path="orders">
+                <Route index element={<OrderHistoryPages />} />
+                <Route path=":orderId" element={<OrderStatusPage />} />
+              </Route>
+            </Route>
 
             <Route element={<AuthLayout />}>
               <Route path="login" element={<LoginPage />} />
