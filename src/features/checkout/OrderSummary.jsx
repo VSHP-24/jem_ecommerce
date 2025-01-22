@@ -45,10 +45,12 @@ function OrderSummary() {
           Order Summary
         </Heading>
 
-        <div className="flex flex-col justify-between gap-2 pb-4 laptopL:flex-row">
-          {cart.map((item, i) => (
-            <ProductDetailsRow key={i} item={item} />
-          ))}
+        <div className="flex flex-col justify-between laptopL:flex-row">
+          <div className="flex flex-col gap-2 pb-4">
+            {cart.map((item, i) => (
+              <ProductDetailsRow key={i} item={item} />
+            ))}
+          </div>
         </div>
 
         <div className="pb-4 text-lg text-primary-200">

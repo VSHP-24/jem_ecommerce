@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
 import Heading from "../../ui/Heading";
-import { getTotalCartPrice } from "./cartSlice";
+import { getTotalCartPrice, getTotalCartQuantity } from "./cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../../ui/Button";
 
 function CartSummary() {
   const subTotal = useSelector(getTotalCartPrice);
+  const cartquantity = useSelector(getTotalCartQuantity);
+
   const deliveryCharges = subTotal ? 200 : 0;
 
   const itemDetailRow = "flex gap-2 justify-between items-center text-lg";
@@ -15,6 +17,12 @@ function CartSummary() {
   return (
     <div className="my-4 mr-4 flex h-full max-w-80 flex-col gap-4 self-center border-2 border-primary-200 px-2 py-4 shadow-lg shadow-primary-200/40 laptopL:self-start">
       <Heading as="h2">Summary</Heading>
+      <div className={itemDetailRow}>
+        <Heading as="h6" styles={itemHeaders}>
+          Total Items :
+        </Heading>
+        <span className={itemDetails}>{cartquantity} Nos.</span>
+      </div>
       <div className={itemDetailRow}>
         <Heading as="h6" styles={itemHeaders}>
           SubTotal :

@@ -8,6 +8,7 @@ import Button from "../../ui/Button";
 
 function Cart() {
   const cart = useSelector(getCart);
+
   const dispatch = useDispatch();
 
   if (cart.length === 0) return <EmptyCart />;
