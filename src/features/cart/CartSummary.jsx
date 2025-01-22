@@ -42,7 +42,7 @@ function CartSummary() {
 
       <Button
         variation="primary"
-        to="/checkout"
+        to="/contact-details"
         additionalStyles="text-black p-2 text-base self-center"
       >
         Proceed to buy

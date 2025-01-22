@@ -11,7 +11,6 @@ import SubCategoryPage from "./pages/SubCategoryPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import LoginPage from "./pages/LoginPage";
-import CheckOutPage from "./pages/CheckOutPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import OrderStatusPage from "./pages/OrderStatusPage";
 import OrderHistoryPages from "./pages/OrderHistoryPages";
@@ -32,6 +31,8 @@ import AppLayout from "./ui/AppLayout";
 import AuthLayout from "./ui/AuthLayout";
 import CartPage from "./pages/CartPage";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
+import OrderSummary from "./ui/OrderSummary";
+import CustomerContactDetailsPage from "./pages/CustomerContactDetailsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -95,7 +96,12 @@ function App() {
 
             <Route element={<ProtectedRoutes />}>
               <Route path="profile" element={<UserProfilePage />} />
-              <Route path="checkout" element={<CheckOutPage />} />
+              <Route
+                path="contact-details"
+                element={<CustomerContactDetailsPage />}
+              />
+              <Route path="order-summary" element={<OrderSummary />} />
+
               <Route path="orders">
                 <Route index element={<OrderHistoryPages />} />
                 <Route path=":orderId" element={<OrderStatusPage />} />
