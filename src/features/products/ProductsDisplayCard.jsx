@@ -58,7 +58,7 @@ function ProductsDisplayCard({ product }) {
     >
       {/* PRODUCT IMAGE */}
       <div className="bg-primary-200">
-        <img className="h-60 w-60" src={mainImage} alt={`${name}`} />
+        <img className="h-60 w-60" src={mainImage} alt={`${name} || JEM`} />
       </div>
 
       {discountPrice && (
@@ -76,7 +76,7 @@ function ProductsDisplayCard({ product }) {
         </Heading>
 
         <Heading as="h3" styles="text-xl laptopL:text-2xl">
-          {name} | JEM{" "}
+          {name} | JEM
         </Heading>
 
         {!discountPrice && (

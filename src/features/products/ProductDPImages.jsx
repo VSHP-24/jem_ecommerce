@@ -21,7 +21,7 @@ function ProductDPImages({ name, images, video }) {
             id={`${name}_${i}`}
             key={`${name}_${i}`}
             src={image}
-            alt={name}
+            alt={`${name} || JEM `}
             onClick={() => setSelectedImage(images[i])}
             onMouseEnter={() => setSelectedImage(images[i])}
             className={`${selectedImage === image ? "border-4 border-primary-400" : " "} h-20 w-20 bg-primary-200 hover:border-4 hover:border-primary-400`}
@@ -31,7 +31,7 @@ function ProductDPImages({ name, images, video }) {
           <img
             id="youtube-video"
             src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
-            alt={`${name} Youtube Video`}
+            alt={`${name} Youtube Video || JEM `}
             className={`h-20 w-20 ${selectedImage === video ? "border-4 border-primary-400" : " "} `}
             onClick={() => setSelectedImage(video)}
             onMouseEnter={() => setSelectedImage(video)}
@@ -42,7 +42,7 @@ function ProductDPImages({ name, images, video }) {
       {selectedImage !== video && (
         <img
           src={selectedImage}
-          alt="name"
+          alt={`${name} || JEM `}
           className="row-start-1 h-60 bg-primary-200 laptopL:col-start-2 laptopL:h-80 laptopL:w-80"
         />
       )}
@@ -51,7 +51,7 @@ function ProductDPImages({ name, images, video }) {
         <iframe
           src={video}
           className="row-start-1 h-60 w-60 bg-primary-200 laptopL:col-start-2 laptopL:h-80 laptopL:w-80"
-          title="YouTube video player"
+          title={`${name} || JEM `}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen

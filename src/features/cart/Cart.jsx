@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart, getCart } from "./cartSlice";
 import CartRow from "./CartRow";
 import Heading from "../../ui/Heading";
-import OrderSummary from "./OrderSummary";
+import CartSummary from "./CartSummary";
 import EmptyCart from "./EmptyCart";
 import Button from "../../ui/Button";
 
@@ -31,7 +31,7 @@ function Cart() {
             ❌ Clear Cart
           </Button>
         </div>
-        <OrderSummary />
+        <CartSummary />
       </div>
     </div>
   );

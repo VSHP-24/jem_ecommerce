@@ -4,7 +4,7 @@ import { getTotalCartPrice } from "./cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../../ui/Button";
 
-function OrderSummary() {
+function CartSummary() {
   const subTotal = useSelector(getTotalCartPrice);
   const deliveryCharges = subTotal ? 200 : 0;
 
@@ -43,13 +43,12 @@ function OrderSummary() {
       <Button
         variation="primary"
         to="/checkout"
-        additionalStyles="text-black p-2   text-base self-center"
-        // mt-4 w-32 h-10 text-xs text-black
+        additionalStyles="text-black p-2 text-base self-center"
       >
-        Checkout
+        Proceed to buy
       </Button>
     </div>
   );
 }
 
-export default OrderSummary;
+export default CartSummary;

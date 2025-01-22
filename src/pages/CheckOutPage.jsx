@@ -1,5 +1,7 @@
+import CustomerContactDetailsForm from "../features/customer/CustomerContactDetailsForm";
+
 function CheckOutPage() {
-  return <div>Check Out</div>;
+  return <CustomerContactDetailsForm />;
 }
 
 export default CheckOutPage;
