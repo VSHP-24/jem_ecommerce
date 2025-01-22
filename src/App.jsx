@@ -31,8 +31,8 @@ import AppLayout from "./ui/AppLayout";
 import AuthLayout from "./ui/AuthLayout";
 import CartPage from "./pages/CartPage";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
-import OrderSummary from "./ui/OrderSummary";
 import CustomerContactDetailsPage from "./pages/CustomerContactDetailsPage";
+import CheckOutPage from "./pages/CheckOutPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -100,7 +100,7 @@ function App() {
                 path="contact-details"
                 element={<CustomerContactDetailsPage />}
               />
-              <Route path="order-summary" element={<OrderSummary />} />
+              <Route path="checkout" element={<CheckOutPage />} />
 
               <Route path="orders">
                 <Route index element={<OrderHistoryPages />} />

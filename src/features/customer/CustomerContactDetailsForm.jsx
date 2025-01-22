@@ -64,7 +64,7 @@ function CustomerContactDetailsForm() {
     //IF IT'S A NEW CUSTOMER OR IF CUSTOMER DOESN'T HAVE ANY PRIMARY ADDRESS , THIS ADDRESS WILL BE SAVED AS PRIMARY
     const { name, email, ...details } = customerDetails;
     if (!customer.id) createCustomer({ ...details });
-    navigate("/order-summary");
+    navigate("/checkout");
   }
 
   if (!isPending)
