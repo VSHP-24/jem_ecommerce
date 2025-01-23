@@ -37,6 +37,6 @@
 
   input,
   textarea {
-    @apply rounded-xl border-2 border-primary-500 bg-primary-200 px-3 py-2 font-medium;
+    @apply rounded-xl border-2 border-primary-500 bg-primary-200 px-3 py-2 font-medium disabled:cursor-not-allowed disabled:bg-primary-600;
   }
 }

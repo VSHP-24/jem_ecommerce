@@ -13,7 +13,7 @@ function LoginForm() {
     formState: { errors },
     reset,
   } = useForm({
-    defaultValues: { email: "customer3@jem.com", password: "custpass@123" },
+    defaultValues: { email: "goku@jem.com", password: "custpass@123" },
   });
 
   async function onSubmit(data) {

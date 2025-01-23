@@ -6,7 +6,7 @@ function NavBar() {
 
   return (
     <div className="hidden content-center laptopL:inline laptopL:border-b-2 laptopL:border-primary-100 laptopL:text-primary-400">
-      <ul className="flex justify-evenly text-xl font-medium desktop:text-2xl">
+      <ul className="flex justify-evenly text-lg font-medium desktop:text-2xl">
         <li className="">
           <Button additionalStyles={buttonAdditionalStyles} to="collection">
             Collection
@@ -40,6 +40,12 @@ function NavBar() {
         <li>
           <Button to="contact-us" additionalStyles={buttonAdditionalStyles}>
             Contact Us
+          </Button>
+        </li>
+
+        <li>
+          <Button to="orders" additionalStyles={buttonAdditionalStyles}>
+            My Orders
           </Button>
         </li>
       </ul>

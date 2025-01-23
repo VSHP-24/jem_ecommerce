@@ -24,7 +24,7 @@ function Bikes() {
   if (!isPending)
     return (
       <div className="flex flex-col gap-8">
-        <Heading as="h4">Bike Models</Heading>
+        <Heading as="h4">{brand} Bike Models </Heading>
 
         <div className="flex flex-wrap justify-center gap-8">
           {/* IF URL CONTAINS BRANDS */}

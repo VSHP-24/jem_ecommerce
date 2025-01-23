@@ -27,6 +27,10 @@ const sideNavBarList = [
     label: "Contact Us",
     path: "contact-us",
   },
+  {
+    label: "My Orders",
+    path: "orders",
+  },
 ];
 
 export default sideNavBarList;

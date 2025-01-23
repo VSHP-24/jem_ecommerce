@@ -26,7 +26,7 @@ function AboutUsPage() {
         <span className="uppercase">ile </span>
       </p>
 
-      <ul className="grid grid-cols-2 grid-rows-2 place-items-center gap-6 text-wrap py-2 text-lg text-primary-100 tablet:grid-cols-4 tablet:grid-rows-1">
+      <ul className="grid grid-cols-2 grid-rows-2 place-items-center gap-6 text-wrap border-y-2 border-dashed border-primary-100/30 py-4 text-lg text-primary-100 tablet:grid-cols-4 tablet:grid-rows-1">
         <li className="flex flex-col items-center gap-2">
           <span className="text-3xl tablet:text-4xl">
             <FaTruck />

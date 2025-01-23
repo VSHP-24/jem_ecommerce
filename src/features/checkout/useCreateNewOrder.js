@@ -13,6 +13,7 @@ export function useCreateNewOrder() {
     mutationFn: createNewOrderApi,
 
     onSuccess: () => {
+      toast.success(` Order Placed successfully `);
       queryClient.setQueryData(["orders"]);
       dispatch(clearCart());
     },
