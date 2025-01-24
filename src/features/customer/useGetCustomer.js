@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getCustomer } from "../../services/apiCustomer";
 
-export function useGetCustomer(id) {
+export function useGetCustomer() {
   const { isPending, data: customer } = useQuery({
-    queryKey: ["customer", id],
-    queryFn: () => getCustomer(id),
+    queryKey: ["customer"],
+    queryFn: getCustomer,
     retry: false,
   });
 

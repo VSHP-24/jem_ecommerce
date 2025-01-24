@@ -21,7 +21,7 @@ function CustomerContactDetailsForm() {
   const cartQuantity = useSelector(getTotalCartQuantity);
   const userDetails = useSelector(getUserDetails);
 
-  const { isPending, customer } = useGetCustomer(userDetails?.id);
+  const { isPending, customer } = useGetCustomer();
   const { isCreating, createCustomer } = useCreateCustomer();
 
   const isWorking = isCreating || isPending;
@@ -74,7 +74,7 @@ function CustomerContactDetailsForm() {
           Contact Details
         </Heading>
         <form
-          className="flex w-full flex-col justify-self-center tablet:max-w-[30rem]"
+          className="flex w-full flex-col justify-self-center tablet:max-w-[60rem]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <FormRow label="Name" error={errors?.name?.message}>
@@ -283,7 +283,7 @@ function CustomerContactDetailsForm() {
           )}
 
           <FormRow>
-            <Button variation="primary" additionalStyles="w-9/12 self-center ">
+            <Button variation="primary">
               {!customer.id ? "Save address" : " Deliver to this address "}
             </Button>
           </FormRow>
