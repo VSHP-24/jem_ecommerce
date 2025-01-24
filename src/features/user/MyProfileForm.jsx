@@ -31,7 +31,7 @@ function MyProfileForm() {
   }
 
   return (
-    <div className="flex w-60 flex-col gap-8 justify-self-center tablet:w-72 laptopS:w-80">
+    <div className="flex flex-col gap-8 justify-self-center">
       <Heading as="h4" styles="text-2xl tablet:text-3xl self-center">
         Profile Details
       </Heading>
