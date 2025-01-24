@@ -6,6 +6,7 @@ import {
   LOGOUT_URL,
   RESET_PASSWORD_URL,
   UPDATE_ME_URL,
+  UPDATE_PASSWORD_URL,
 } from "./apiLinks";
 
 /////////////////////////////////////////////////
@@ -123,6 +124,25 @@ export async function updateMyProfile(updatedProfileData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(updatedProfileData),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message);
+  return data.data.user;
+}
+
+/////////////////////////////////////////////////
+//           USER UPDATE PASSWORD
+/////////////////////////////////////////////////
+
+export async function updatePassword(passwordData) {
+  const res = await fetch(UPDATE_PASSWORD_URL, {
+    mode: "cors",
+    credentials: "include",
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(passwordData),
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.message);

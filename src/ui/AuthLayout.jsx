@@ -8,7 +8,7 @@ function AuthLayout() {
         src="/jembrandimage.png"
         alt="JEM Brand Representation"
       />
-      <div className="absolute w-60 tablet:w-72 laptopS:w-80 laptopL:w-96">
+      <div className="absolute w-60 laptopS:w-[30rem]">
         <Outlet />
       </div>
     </div>
