@@ -30,7 +30,7 @@ function AllProducts() {
   if (!isPending && products.length > 0)
     return (
       <div className="flex flex-col gap-8">
-        <Heading as="h4">Products</Heading>
+        <Heading as="h2">Products</Heading>
 
         <div className="flex flex-wrap justify-center gap-8">
           {/* IF URL DOESN'T CONTAIN BRAND AND BIKE MODEL OR CATEGORY AND SUBCATEGORY */}

@@ -59,7 +59,9 @@ function LoginForm() {
       </NavLink>
 
       <FormRow>
-        <Button variation="primary">Login</Button>
+        <Button variation="primary" additionalStyles="px-4">
+          Login
+        </Button>
       </FormRow>
     </form>
   );

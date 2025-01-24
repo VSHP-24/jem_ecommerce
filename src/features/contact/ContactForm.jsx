@@ -23,7 +23,7 @@ function ContactForm() {
       <Heading as="h4">Drop us a message</Heading>
 
       <form
-        className="grid w-60 grid-cols-1 content-between items-center laptopS:w-80"
+        className="grid grid-cols-1 content-between items-center"
         onSubmit={handleSubmit(onSubmit)}
       >
         <FormRow label="Name" error={errors?.name?.message}>
@@ -32,7 +32,6 @@ function ContactForm() {
             id="name"
             placeholder="Enter your name"
             autoComplete="name"
-            // disabled={isPending}
             {...register("name", { required: "*This field is required" })}
           />
         </FormRow>
@@ -43,7 +42,6 @@ function ContactForm() {
             id="email"
             placeholder="Enter your email"
             autoComplete="username"
-            // disabled={isPending}
             {...register("email", { required: "*This field is required" })}
           />
         </FormRow>
@@ -54,7 +52,6 @@ function ContactForm() {
             id="phone"
             placeholder="Enter your phone number"
             autoComplete="username"
-            // disabled={isPending}
             {...register("phone", { required: "*This field is required" })}
           />
         </FormRow>
@@ -65,12 +62,11 @@ function ContactForm() {
             id="subject"
             placeholder="Enter the subject"
             autoComplete="username"
-            // disabled={isPending}
             {...register("subject", { required: "*This field is required" })}
           />
         </FormRow>
 
-        <FormRow label="Description">
+        <FormRow label="Message">
           <textarea
             type="text"
             placeholder="Enter your message"
@@ -80,7 +76,9 @@ function ContactForm() {
         </FormRow>
 
         <FormRow>
-          <Button variation="primary">Submit</Button>
+          <Button variation="primary" additionalStyles="px-4">
+            Submit
+          </Button>
         </FormRow>
       </form>
     </div>

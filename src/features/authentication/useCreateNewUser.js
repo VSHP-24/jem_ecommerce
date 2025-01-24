@@ -16,6 +16,9 @@ export function useCreateNewUser() {
 
     onSuccess: (user) => {
       queryClient.setQueryData(["user"], user);
+      toast.success(
+        `Hey there 👋🏻 ! We're so excited to welcome you ${user.name} 🏍.`,
+      );
       navigate("/products", { replace: true });
       dispatch(loggedIn({ id: user.id, name: user.name, email: user.email }));
     },

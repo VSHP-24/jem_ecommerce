@@ -2,10 +2,10 @@
 //           CREATE NEW ORDER
 /////////////////////////////////////////////////
 
-import { ORDERS_URL } from "./apiLinks";
+import { CREATE_NEW_ORDERS_URL, GET_MY_ORDERS_URL } from "./apiLinks";
 
 export async function createNewOrder(newOrder) {
-  const res = await fetch(ORDERS_URL, {
+  const res = await fetch(CREATE_NEW_ORDERS_URL, {
     mode: "cors",
     credentials: "include",
     method: "POST",
@@ -16,4 +16,18 @@ export async function createNewOrder(newOrder) {
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.message);
+}
+
+/////////////////////////////////////////////////
+//           FETCHES MY ORDERS
+/////////////////////////////////////////////////
+
+export async function getMyOrders() {
+  const res = await fetch(GET_MY_ORDERS_URL, {
+    mode: "cors",
+    credentials: "include",
+  });
+  const data = await res.json();
+  if (!res.ok) return null;
+  return data.data.data;
 }

@@ -283,7 +283,7 @@ function CustomerContactDetailsForm() {
           )}
 
           <FormRow>
-            <Button variation="primary">
+            <Button variation="primary" additionalStyles="px-4">
               {!customer.id ? "Save address" : " Deliver to this address "}
             </Button>
           </FormRow>

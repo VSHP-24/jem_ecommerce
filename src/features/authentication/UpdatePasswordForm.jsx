@@ -75,7 +75,12 @@ function UpdatePasswordForm() {
         </FormRow>
 
         <FormRow>
-          <Button variation="primary" size="large" disabled={isPending}>
+          <Button
+            variation="primary"
+            size="large"
+            disabled={isPending}
+            additionalStyles="px-4"
+          >
             Update Password
           </Button>
         </FormRow>

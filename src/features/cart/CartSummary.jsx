@@ -51,7 +51,7 @@ function CartSummary() {
       <Button
         variation="primary"
         to="/contact-details"
-        additionalStyles="text-black p-2 text-base self-center"
+        additionalStyles="text-black py-2 px-4 text-base self-center"
       >
         Proceed to buy
       </Button>

@@ -250,7 +250,7 @@ function UserContactDetailsForm() {
         )}
 
         <FormRow>
-          <Button variation="primary">
+          <Button variation="primary" additionalStyles="px-4">
             {!isUpdateSession && customer.id
               ? " Update Address "
               : "Save Address"}

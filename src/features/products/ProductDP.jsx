@@ -115,7 +115,7 @@ function ProductDP() {
                 <Button
                   onClick={() => handleAddToCart(product)}
                   variation="primary"
-                  additionalStyles="text-black "
+                  additionalStyles="text-black px-4 "
                 >
                   Add to cart
                 </Button>

@@ -1,5 +1,7 @@
+import OrderHistory from "../features/orders/OrderHistory";
+
 function OrderHistoryPages() {
-  return <div>Order History</div>;
+  return <OrderHistory />;
 }
 
 export default OrderHistoryPages;

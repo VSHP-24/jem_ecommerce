@@ -60,7 +60,12 @@ function ResetPasswordForm() {
       </FormRow>
 
       <FormRow>
-        <Button variation="primary" size="large" disabled={isPending}>
+        <Button
+          variation="primary"
+          size="large"
+          disabled={isPending}
+          additionalStyles="px-4"
+        >
           Reset Password
         </Button>
       </FormRow>

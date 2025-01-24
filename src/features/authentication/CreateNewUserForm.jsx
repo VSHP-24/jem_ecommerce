@@ -84,7 +84,9 @@ function CreateNewUserForm() {
       </NavLink>
 
       <FormRow>
-        <Button variation="primary">Create Account</Button>
+        <Button variation="primary" additionalStyles="px-4">
+          Create Account
+        </Button>
       </FormRow>
     </form>
   );

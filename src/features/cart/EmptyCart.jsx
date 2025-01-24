@@ -11,7 +11,7 @@ function EmptyCart() {
       <Button
         variation="primary"
         to="/products"
-        additionalStyles="text-lg text-black laptopS:text-2xl"
+        additionalStyles="text-lg text-black laptopS:text-2xl px-4"
       >
         Start Shopping
       </Button>

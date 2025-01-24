@@ -83,7 +83,7 @@ function OrderConfirmation({ customer, cart }) {
 
       <Button
         variation="primary"
-        additionalStyles="text-black p-2 text-base self-center"
+        additionalStyles="text-black py-2 px-4 text-base self-center"
         onClick={handlePlaceOrder}
         disabled={isPending}
       >

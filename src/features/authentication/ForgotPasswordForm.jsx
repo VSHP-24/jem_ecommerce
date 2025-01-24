@@ -32,7 +32,9 @@ function ForgotPasswordForm() {
       </FormRow>
 
       <FormRow>
-        <Button variation="primary">Send Password Reset Link</Button>
+        <Button variation="primary" additionalStyles="px-4">
+          Send Password Reset Link
+        </Button>
       </FormRow>
     </form>
   );

@@ -58,7 +58,12 @@ function MyProfileForm() {
         </FormRow>
 
         <FormRow>
-          <Button variation="primary" size="large" disabled={isWorking}>
+          <Button
+            variation="primary"
+            size="large"
+            disabled={isWorking}
+            additionalStyles="px-4"
+          >
             {!isUpdateSession ? "Edit My Profile" : "Update My Profile"}
           </Button>
         </FormRow>
