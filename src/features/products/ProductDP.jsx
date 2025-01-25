@@ -108,6 +108,13 @@ function ProductDP() {
                     currentQuantity={currentQuantity}
                   />
                   <DeleteItem productId={id} />
+                  <Button
+                    variation="primary"
+                    to="/contact-details"
+                    additionalStyles="text-black py-2 px-4 text-base self-center"
+                  >
+                    Proceed to buy
+                  </Button>
                 </div>
               )}
 
