@@ -7,7 +7,6 @@ function OrderHistory() {
   let { isPending, orders } = useGetOrders();
 
   if (!isPending && orders.length < 1) return <NoOrderHistory />;
-  if (!isPending) console.log(orders[0]);
 
   if (!isPending)
     return (

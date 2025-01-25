@@ -10,7 +10,7 @@ function NoOrderHistory() {
       />
       <div className="flex flex-col items-center gap-4 text-center leading-8">
         <p className="laptopS:text-3xl">
-          {`Seems you are a Newcomer . Look around and Let's Create History... `}
+          {`Hey there Rookie ! . Go Look around and let's create history... `}
         </p>
         <p className="text-primary-100 laptopS:text-3xl">
           <strong>{`...Order History 😉`}</strong>

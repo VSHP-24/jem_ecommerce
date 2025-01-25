@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+
 import Heading from "../../ui/Heading";
-import { formatCurrency, formatDate, formatStatus } from "../../utils/helpers";
 import Button from "../../ui/Button";
+
+import { formatCurrency, formatDate, formatStatus } from "../../utils/helpers";
 
 function OrderDisplayCard({ index, order }) {
   const navigate = useNavigate();
@@ -23,8 +25,13 @@ function OrderDisplayCard({ index, order }) {
       break;
 
     case "Shipped":
-      statusColor = "bg-green-700";
+      statusColor = "bg-orange-700";
       status = "In Transit";
+      break;
+
+    case "Delivered":
+      statusColor = "bg-green-700";
+      status = "Delivered";
       break;
 
     case "Cancelled":
@@ -45,7 +52,6 @@ function OrderDisplayCard({ index, order }) {
         className={`absolute right-5 top-3 rounded-full ${statusColor} p-2 text-sm font-bold text-primary-200`}
       >
         {status}
-        {/* {formatStatus(orderStatus)} */}
       </div>
 
       <div className="m-2 flex flex-col justify-between gap-6 text-primary-200">

@@ -12,7 +12,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import LoginPage from "./pages/LoginPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import OrderStatusPage from "./pages/OrderStatusPage";
+import OrderDetailPage from "./pages/OrderDetailPage";
 import OrderHistoryPages from "./pages/OrderHistoryPages";
 import UserProfilePage from "./pages/UserProfilePage";
 import PageNotFound from "./pages/PageNotFound";
@@ -104,7 +104,7 @@ function App() {
 
               <Route path="orders">
                 <Route index element={<OrderHistoryPages />} />
-                <Route path=":orderId" element={<OrderStatusPage />} />
+                <Route path=":orderId" element={<OrderDetailPage />} />
               </Route>
             </Route>
 

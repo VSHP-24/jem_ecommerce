@@ -9,7 +9,7 @@ export const calculateOfferPercentage = (price, discountPrice) =>
 export const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
     day: "numeric",
-    month: "numeric",
+    month: "short",
     year: "numeric",
   }).format(new Date(date));
 
