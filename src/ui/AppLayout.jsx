@@ -9,6 +9,7 @@ import BreadCrumbTrail from "./BreadCrumbTrail";
 
 import { useUser } from "../features/authentication/useUser";
 import { loggedIn } from "../features/user/userSlice";
+import CartIcon from "../features/cart/CartIcon";
 
 function AppLayout() {
   const { isPending, user, isAuthenticated } = useUser();
@@ -30,6 +31,9 @@ function AppLayout() {
       <main className="m-5 mb-10">
         <div className="mx-auto my-0">
           <Outlet />
+        </div>
+        <div className="absolute bottom-5 right-10 flex flex-col gap-4">
+          <CartIcon />
         </div>
       </main>
       <Footer />
