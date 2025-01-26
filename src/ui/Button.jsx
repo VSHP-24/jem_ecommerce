@@ -9,7 +9,7 @@ function Button({
   to,
 }) {
   const base =
-    "inline-block rounded-full font-bold uppercase transition-colors duration-150 p-2 transition ease-in-out     hover:scale-110  " +
+    "inline-block rounded-full font-bold uppercase transition-colors duration-150 p-2 transition ease-in-out     hover:scale-110 disabled:scale-100  " +
     additionalStyles;
 
   const variations = {

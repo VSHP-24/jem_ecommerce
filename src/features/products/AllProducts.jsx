@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
 
 import Heading from "../../ui/Heading";
+import Pagination from "../../ui/Pagination";
 
 import Filter from "../filter/Filter";
 import FilterIcon from "../filter/FilterIcon";
@@ -12,6 +13,7 @@ import { useGetBrands } from "../brands/useGetBrands";
 import { useGetModels } from "../bikemodels/useGetModels";
 import { useGetCategories } from "../categories/useGetCategories";
 import { useGetSubCategories } from "../subCategories/useGetSubCategories";
+import { PAGE_SIZE } from "../../utils/constants";
 
 function AllProducts() {
   const [filterIsExpanded, setFilterIsExpanded] = useState(false);
@@ -28,6 +30,11 @@ function AllProducts() {
 
   // THIS FUNCTION HELPS IN EXPANDING AND CLOSING THE FILTER
   const showFilter = () => setFilterIsExpanded((cur) => !cur);
+
+  // IF SEARCHPARAMS DOESN'T HAVE PAGE , DEFAULT IS SET TO 1
+  const currentPage = !searchParams.get("page")
+    ? 1
+    : Number(searchParams.get("page"));
 
   const isPending =
     isProductsPending ||
@@ -72,6 +79,42 @@ function AllProducts() {
     searchParams.get("subCategory") ||
     "";
 
+  let availableProducts = [];
+  let availableProductsFiltered = [];
+  let pageCount;
+
+  if (!isPending) {
+    // AVAILABLE PRODUCTS (NOT DELETED)
+    availableProducts = products.filter(
+      (product) =>
+        !product.isDeleted &&
+        !product.brand.isDeleted &&
+        !product.model.isDeleted &&
+        !product.category.isDeleted &&
+        !product.subCategory.isDeleted,
+    );
+
+    //AVAILABLE PRODUCTS FILTERED WITH RESPECT TO SEARCHPARAMS
+    availableProductsFiltered = availableProducts.filter(
+      (product) =>
+        (filteredBrands === "" ||
+          filteredBrands.includes(product.brand.slug)) &&
+        (filteredModels === "" ||
+          filteredModels.includes(product.model.slug)) &&
+        (filteredCategories === "" ||
+          filteredCategories.includes(product.category.slug)) &&
+        (filteredSubCategories === "" ||
+          filteredSubCategories.includes(product.subCategory.slug)),
+    );
+
+    pageCount = Math.ceil(availableProductsFiltered.length / PAGE_SIZE);
+  }
+
+  // IF SEARCHPARAMS PAGE IS GREATER THAN EXISTING PAGE COUNTS, PAGE WILL BE REDIRECTED TO FIRST PAGE OF THE TABLE
+  if (!isPending)
+    if (currentPage > pageCount || currentPage < 1)
+      return <Navigate replace to="/products" />;
+
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   // IF URL CONTAINS INVALID BRAND OR MODEL OR CATEGORY OR SUBCATEGORY , THIS DISPLAYS PAGE NOT FOUND
   //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,19 +146,8 @@ function AllProducts() {
             !model &&
             !category &&
             !subcategory &&
-            products
-              .filter(
-                (product) =>
-                  // THESE FILTER THE PRODUCTS BASED ON THE SEARCHPARAMS RESULTS
-                  (filteredBrands === "" ||
-                    filteredBrands.includes(product.brand.slug)) &&
-                  (filteredModels === "" ||
-                    filteredModels.includes(product.model.slug)) &&
-                  (filteredCategories === "" ||
-                    filteredCategories.includes(product.category.slug)) &&
-                  (filteredSubCategories === "" ||
-                    filteredSubCategories.includes(product.subCategory.slug)),
-              )
+            availableProductsFiltered
+              .slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
               .map((product) => (
                 <ProductsDisplayCard key={product.slug} product={product} />
               ))}
@@ -123,7 +155,7 @@ function AllProducts() {
           {/* IF URL CONTAINS BRAND AND BIKE MODEL OR CATEGORY AND SUBCATEGORY */}
 
           {((brand && model) || (category && subcategory)) &&
-            products.map(
+            availableProducts.map(
               (product) =>
                 ((product.brand.slug === brand &&
                   product.model.slug === model) ||
@@ -133,6 +165,10 @@ function AllProducts() {
                 ),
             )}
         </div>
+
+        {!brand && !model && !category && !subcategory && (
+          <Pagination count={availableProductsFiltered.length} />
+        )}
 
         <FilterIcon
           styles=" absolute bottom-20 right-5 flex flex-col gap-4 "
