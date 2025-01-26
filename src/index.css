@@ -28,6 +28,19 @@
   img {
     @apply max-w-full;
   }
+
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffd20a;
+    border-radius: 0.25rem;
+  }
 }
 
 @layer components {

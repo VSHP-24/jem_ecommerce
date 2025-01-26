@@ -32,9 +32,7 @@ function AppLayout() {
         <div className="mx-auto my-0">
           <Outlet />
         </div>
-        <div className="absolute bottom-5 right-10 flex flex-col gap-4">
-          <CartIcon />
-        </div>
+        <CartIcon />
       </main>
       <Footer />
     </div>
