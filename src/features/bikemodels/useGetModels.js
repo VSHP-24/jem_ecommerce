@@ -8,8 +8,6 @@ export function useGetModels() {
     queryFn: getModels,
   });
 
-  console.log(models);
-
   if (!isPending)
     models = models.filter(
       (model) =>

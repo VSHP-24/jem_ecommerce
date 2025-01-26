@@ -5,7 +5,9 @@ import Heading from "../../ui/Heading";
 import Pagination from "../../ui/Pagination";
 
 import Filter from "../filter/Filter";
+import SortBy from "../sort/SortBy";
 import FilterIcon from "../filter/FilterIcon";
+import SortIcon from "../sort/SortIcon";
 import ProductsDisplayCard from "./ProductsDisplayCard";
 
 import { useGetProducts } from "./useGetProducts";
@@ -17,6 +19,7 @@ import { PAGE_SIZE } from "../../utils/constants";
 
 function AllProducts() {
   const [filterIsExpanded, setFilterIsExpanded] = useState(false);
+  const [sortIsExpanded, setSortIsExpanded] = useState(false);
 
   const { isPending: isProductsPending, products } = useGetProducts();
   const { isPending: isBrandsPending, brands } = useGetBrands();
@@ -30,6 +33,7 @@ function AllProducts() {
 
   // THIS FUNCTION HELPS IN EXPANDING AND CLOSING THE FILTER
   const showFilter = () => setFilterIsExpanded((cur) => !cur);
+  const showSort = () => setSortIsExpanded((cur) => !cur);
 
   // IF SEARCHPARAMS DOESN'T HAVE PAGE , DEFAULT IS SET TO 1
   const currentPage = !searchParams.get("page")
@@ -65,6 +69,20 @@ function AllProducts() {
     },
   ];
 
+  // THESE ARE THE VALUES TO BE PASSED INSIDE THE SORT BY OPTIONS
+  const sortByOptions = [
+    { value: "brand-asc", label: "Sort by Brand ( A - Z )" },
+    { value: "brand-desc", label: "Sort by Brand ( Z - A )" },
+    { value: "model-asc", label: "Sort by Model ( A - Z )" },
+    { value: "model-desc", label: "Sort by Model ( Z - A )" },
+    { value: "category-asc", label: "Sort by Category ( A - Z )" },
+    { value: "category-desc", label: "Sort by Category ( Z - A )" },
+    { value: "subCategory-asc", label: "Sort by SubCategory ( A - Z )" },
+    { value: "subCategory-desc", label: "Sort by SubCategory ( Z - A )" },
+    { value: "price-asc", label: "Sort by Price ( Low --> High )" },
+    { value: "price-desc", label: "Sort by Price ( High --> Low )" },
+  ];
+
   // THESE GETS THE VALUES FROM SEARCHPARAMS , IF ANY FILTERS ARE SELECTED
   let filteredBrands =
     searchParams.get("brand")?.split(",") || searchParams.get("brand") || "";
@@ -79,13 +97,37 @@ function AllProducts() {
     searchParams.get("subCategory") ||
     "";
 
+  // THESE GETS THE VALUES FROM SEARCHPARAMS , IF ANY SORTBY OPTIONS ARE SELECTED
+  const sortBy = searchParams.get("sortBy") || "brand-asc";
+  const [field, direction] = sortBy.split("-");
+  const modifier = direction === "asc" ? 1 : -1;
+
+  let sortedProducts;
   let availableProducts = [];
   let availableProductsFiltered = [];
   let pageCount;
 
   if (!isPending) {
+    // SORT
+    sortedProducts = products.sort((a, b) => {
+      if (direction === "asc" && field !== "price") {
+        if (a[field].name.toUpperCase() > b[field].name.toUpperCase()) return 1;
+        if (b[field].name.toUpperCase() > a[field].name.toUpperCase())
+          return -1;
+      }
+      if (direction === "desc" && field !== "price") {
+        if (a[field].name.toUpperCase() > b[field].name.toUpperCase())
+          return -1;
+        if (b[field].name.toUpperCase() > a[field].name.toUpperCase()) return 1;
+      }
+      if (field === "price") {
+        return (a[field] - b[field]) * modifier;
+      }
+      return null;
+    });
+
     // AVAILABLE PRODUCTS (NOT DELETED)
-    availableProducts = products.filter(
+    availableProducts = sortedProducts.filter(
       (product) =>
         !product.isDeleted &&
         !product.brand.isDeleted &&
@@ -141,6 +183,7 @@ function AllProducts() {
         <Heading as="h2">Products</Heading>
         <div className="flex flex-wrap justify-center gap-8">
           {/* IF URL DOESN'T CONTAIN BRAND AND BIKE MODEL OR CATEGORY AND SUBCATEGORY */}
+          {/* THIS  DISPLAYS ONLY IN ALL PRODUCTS PAGE ("/products") */}
 
           {!brand &&
             !model &&
@@ -166,16 +209,33 @@ function AllProducts() {
             )}
         </div>
 
-        {!brand && !model && !category && !subcategory && (
-          <Pagination count={availableProductsFiltered.length} />
-        )}
+        {/* THIS ONLY DISPLAYS ALL THESE OPTIONS ONLY IN ALL PRODUCTS PAGE ("/products") */}
 
-        <FilterIcon
-          styles=" absolute bottom-20 right-5 flex flex-col gap-4 "
-          onHandleShowFilter={showFilter}
-        />
-        {filterIsExpanded && (
-          <Filter filtersList={filtersList} onHandleShowFilter={showFilter} />
+        {!brand && !model && !category && !subcategory && (
+          <>
+            <SortIcon
+              styles=" absolute bottom-40 right-5 flex flex-col gap-4 "
+              onHandleShowSort={showSort}
+            />
+            {sortIsExpanded && (
+              <SortBy
+                sortByOptions={sortByOptions}
+                onHandleShowSort={showSort}
+              />
+            )}
+
+            <FilterIcon
+              styles=" absolute bottom-20 right-5 flex flex-col gap-4 "
+              onHandleShowFilter={showFilter}
+            />
+            {filterIsExpanded && (
+              <Filter
+                filtersList={filtersList}
+                onHandleShowFilter={showFilter}
+              />
+            )}
+            <Pagination count={availableProductsFiltered.length} />
+          </>
         )}
       </div>
     );
