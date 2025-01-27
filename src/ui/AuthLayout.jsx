@@ -1,6 +1,24 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Outlet, useNavigate } from "react-router-dom";
+
+import { getUserDetails } from "../features/user/userSlice";
+import { useUser } from "../features/authentication/useUser";
 
 function AuthLayout() {
+  const navigate = useNavigate();
+  const userDetails = useSelector(getUserDetails);
+  const { isPending, isAuthenticated } = useUser();
+
+  useEffect(
+    function () {
+      if (isAuthenticated && userDetails.id && !isPending) {
+        navigate("/products", { replace: true });
+      }
+    },
+    [isAuthenticated, isPending, navigate, userDetails.id],
+  );
+
   return (
     <div className="relative flex items-center justify-center">
       <img
