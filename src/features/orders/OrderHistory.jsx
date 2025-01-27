@@ -148,9 +148,11 @@ function OrderHistory() {
         <Heading as="h2">Order History</Heading>
 
         <div className="flex flex-wrap justify-center gap-8">
-          {availableOrders.map((order, i) => (
-            <OrderDisplayCard key={order.id} index={i} order={order} />
-          ))}
+          {availableOrders
+            .slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+            .map((order, i) => (
+              <OrderDisplayCard key={order.id} index={i} order={order} />
+            ))}
         </div>
 
         {
