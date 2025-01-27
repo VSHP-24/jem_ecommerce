@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import Heading from "../../ui/Heading";
+import Loader from "../../ui/Loader";
 
 import PageNotFound from "../../pages/PageNotFound";
 import OrderProductDetailsRow from "./OrderProductDetailsRow";
@@ -11,9 +12,10 @@ import { formatCurrency, formatDate, formatStatus } from "../../utils/helpers";
 function OrderDP() {
   const { orderId } = useParams();
   let { isPending, orders } = useGetOrders();
+
   let order;
 
-  if (isPending) return null;
+  if (isPending) return <Loader />;
 
   if (!isPending) order = orders.filter((order) => order.id === orderId);
 

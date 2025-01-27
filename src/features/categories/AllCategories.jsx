@@ -1,9 +1,12 @@
 import Heading from "../../ui/Heading";
+import Loader from "../../ui/Loader";
 import CategoriesDisplayCard from "./CategoriesDisplayCard";
 import { useGetCategories } from "./useGetCategories";
 
 function AllCategories() {
   const { isPending, categories } = useGetCategories();
+
+  if (isPending) return <Loader />;
 
   if (!isPending)
     return (

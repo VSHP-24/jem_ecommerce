@@ -6,10 +6,11 @@ function Button({
   variation,
   additionalStyles = " ",
   onClick,
+  onDisabled,
   to,
 }) {
   const base =
-    "inline-block rounded-full font-bold uppercase transition-colors duration-150 p-2 transition ease-in-out     hover:scale-110 disabled:scale-100  " +
+    "inline-block rounded-full font-bold uppercase transition-colors duration-150 p-2 transition ease-in-out     hover:scale-110 disabled:scale-100 disabled:cursor-not-allowed  " +
     additionalStyles;
 
   const variations = {
@@ -40,7 +41,7 @@ function Button({
   return (
     <button
       className={base + `${variation ? variations[variation] : " "}`}
-      disabled={disabled}
+      disabled={onDisabled}
       onClick={onClick}
     >
       {children}

@@ -3,10 +3,13 @@ import Heading from "../../ui/Heading";
 import BikesDisplayCard from "./BikesDisplayCard";
 import { useGetModels } from "./useGetModels";
 import PageNotFound from "../../pages/PageNotFound";
+import Loader from "../../ui/Loader";
 
 function Bikes() {
   const { isPending, models } = useGetModels();
   const { brand } = useParams();
+
+  if (isPending) return <Loader />;
 
   /////////////////////////////////////////////////////////////////
   // IF URL CONTAINS INVALID BRAND , THIS DISPLAYS PAGE NOT FOUND

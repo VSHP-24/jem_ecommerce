@@ -15,7 +15,6 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import OrderDetailPage from "./pages/OrderDetailPage";
 import OrderHistoryPages from "./pages/OrderHistoryPages";
 import UserProfilePage from "./pages/UserProfilePage";
-import PageNotFound from "./pages/PageNotFound";
 import ProductsPage from "./pages/ProductsPage";
 import CollectionPage from "./pages/CollectionPage";
 import TermsAndConditions from "./pages/TermsAndConditions";
@@ -26,13 +25,14 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import CreateNewUserPage from "./pages/CreateNewUserPage";
 import ModelProductsPage from "./pages/ModelProductsPage";
 import SubCategoryProductsPage from "./pages/SubCategoryProductsPage";
+import PageNotFoundFullPage from "./pages/PageNotFoundFullPage";
+import CartPage from "./pages/CartPage";
+import CheckOutPage from "./pages/CheckOutPage";
+import CustomerContactDetailsPage from "./pages/CustomerContactDetailsPage";
 
 import AppLayout from "./ui/AppLayout";
 import AuthLayout from "./ui/AuthLayout";
-import CartPage from "./pages/CartPage";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
-import CustomerContactDetailsPage from "./pages/CustomerContactDetailsPage";
-import CheckOutPage from "./pages/CheckOutPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -125,7 +125,7 @@ function App() {
             </Route>
           </Route>
 
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="*" element={<PageNotFoundFullPage />} />
         </Routes>
       </BrowserRouter>
 

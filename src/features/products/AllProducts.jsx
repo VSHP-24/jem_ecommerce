@@ -3,6 +3,7 @@ import { Navigate, useParams, useSearchParams } from "react-router-dom";
 
 import Heading from "../../ui/Heading";
 import Pagination from "../../ui/Pagination";
+import Loader from "../../ui/Loader";
 
 import Filter from "../filter/Filter";
 import SortBy from "../sort/SortBy";
@@ -107,6 +108,8 @@ function AllProducts() {
   let availableProducts = [];
   let availableProductsFiltered = [];
   let pageCount;
+
+  if (isPending) return <Loader />;
 
   if (!isPending) {
     // SORT

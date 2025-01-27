@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate, useSearchParams } from "react-router-dom";
 
 import Heading from "../../ui/Heading";
 import Pagination from "../../ui/Pagination";
@@ -12,8 +13,8 @@ import OrderDisplayCard from "./OrderDisplayCard";
 import PageNotFound from "../../pages/PageNotFound";
 
 import { useGetOrders } from "./useGetOrders";
-import { Navigate, useSearchParams } from "react-router-dom";
 import { PAGE_SIZE } from "../../utils/constants";
+import Loader from "../../ui/Loader";
 
 function OrderHistory() {
   const [filterIsExpanded, setFilterIsExpanded] = useState(false);
@@ -104,6 +105,8 @@ function OrderHistory() {
   let sortedOrders;
   let availableOrders = [];
   let pageCount;
+
+  if (isPending) return <Loader />;
 
   if (!isPending) {
     // SORT

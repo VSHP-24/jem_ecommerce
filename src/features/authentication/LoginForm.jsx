@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
+
 import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
-import { NavLink } from "react-router-dom";
+import Spinner from "../../ui/Spinner";
+
 import { useLogin } from "./useLogin";
 
 function LoginForm() {
-  const { login, isPending } = useLogin();
+  let { login, isPending } = useLogin();
 
   const {
     register,
@@ -59,8 +62,12 @@ function LoginForm() {
       </NavLink>
 
       <FormRow>
-        <Button variation="primary" additionalStyles="px-4">
-          Login
+        <Button
+          onDisabled={isPending}
+          variation="primary"
+          additionalStyles="px-4 "
+        >
+          {!isPending ? "Login" : <Spinner />}
         </Button>
       </FormRow>
     </form>

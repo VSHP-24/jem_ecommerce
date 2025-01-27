@@ -1,12 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useGetSubCategories } from "./useGetSubCategories";
+
 import Heading from "../../ui/Heading";
 import SubCategoryDisplayCard from "./SubCategoryDisplayCard";
 import PageNotFound from "../../pages/PageNotFound";
 
+import { useGetSubCategories } from "./useGetSubCategories";
+import Loader from "../../ui/Loader";
+
 function SubCategories() {
   const { isPending, subCategories } = useGetSubCategories();
   const { category } = useParams();
+
+  if (isPending) return <Loader />;
 
   ////////////////////////////////////////////////////////////////////
   // IF URL CONTAINS INVALID CATEGORY , THIS DISPLAYS PAGE NOT FOUND

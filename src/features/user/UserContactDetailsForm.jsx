@@ -8,6 +8,8 @@ import { useGetCustomer } from "../customer/useGetCustomer";
 import { useState } from "react";
 import { useUpdateCustomerContactDetails } from "../customer/useUpdateCustomerContactDetails";
 import { useCreateCustomer } from "../customer/useCreateNewCustomer";
+import Loader from "../../ui/Loader";
+import Spinner from "../../ui/Spinner";
 
 function UserContactDetailsForm() {
   const [isUpdateSession, setIsUpdateSession] = useState(false);
@@ -65,6 +67,8 @@ function UserContactDetailsForm() {
       createCustomer({ ...details });
     }
   }
+
+  if (isPending) return <Loader />;
 
   return (
     <div className="flex flex-col gap-8 justify-self-center">
@@ -250,10 +254,20 @@ function UserContactDetailsForm() {
         )}
 
         <FormRow>
-          <Button variation="primary" additionalStyles="px-4">
-            {!isUpdateSession && customer.id
-              ? " Update Address "
-              : "Save Address"}
+          <Button
+            variation="primary"
+            additionalStyles="px-4"
+            onDisabled={isWorking}
+          >
+            {!isWorking ? (
+              !isUpdateSession && customer.id ? (
+                " Update Address "
+              ) : (
+                "Save Address"
+              )
+            ) : (
+              <Spinner />
+            )}
           </Button>
         </FormRow>
       </form>

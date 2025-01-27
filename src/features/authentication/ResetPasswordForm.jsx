@@ -4,6 +4,7 @@ import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
 
 import { useResetPassword } from "./useResetPassword";
+import Spinner from "../../ui/Spinner";
 
 function ResetPasswordForm() {
   const { resetPassword, isPending } = useResetPassword();
@@ -65,8 +66,9 @@ function ResetPasswordForm() {
           size="large"
           disabled={isPending}
           additionalStyles="px-4"
+          onDisabled={isPending}
         >
-          Reset Password
+          {!isPending ? "Reset Password" : <Spinner />}
         </Button>
       </FormRow>
     </form>

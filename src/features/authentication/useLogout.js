@@ -1,8 +1,8 @@
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { logout as logoutApi } from "../../services/apiAuth";
-import { useDispatch } from "react-redux";
 import { loggedOut } from "../user/userSlice";
 
 export function useLogout() {

@@ -7,6 +7,7 @@ import Heading from "../../ui/Heading";
 import { formatCurrency } from "../../utils/helpers";
 import { getTotalCartPrice } from "../cart/cartSlice";
 import { useCreateNewOrder } from "./useCreateNewOrder";
+import Spinner from "../../ui/Spinner";
 
 function OrderConfirmation({ customer, cart }) {
   const navigate = useNavigate();
@@ -85,9 +86,9 @@ function OrderConfirmation({ customer, cart }) {
         variation="primary"
         additionalStyles="text-black py-2 px-4 text-base self-center"
         onClick={handlePlaceOrder}
-        disabled={isPending}
+        onDisabled={isPending}
       >
-        Place Order
+        {!isPending ? "Place Order" : <Spinner />}
       </Button>
     </div>
   );

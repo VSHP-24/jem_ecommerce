@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
+import Loader from "../../ui/Loader";
+import Heading from "../../ui/Heading";
+import Spinner from "../../ui/Spinner";
 
-import { useDispatch, useSelector } from "react-redux";
 import { saveAddress, getUserDetails } from "../user/userSlice";
 import { getTotalCartQuantity } from "../cart/cartSlice";
 import { useGetCustomer } from "./useGetCustomer";
 import { useCreateCustomer } from "./useCreateNewCustomer";
-import Heading from "../../ui/Heading";
 
 function CustomerContactDetailsForm() {
   const [billingAddress, setBillingAddress] = useState(true);
@@ -66,6 +68,8 @@ function CustomerContactDetailsForm() {
     if (!customer.id) createCustomer({ ...details });
     navigate("/checkout");
   }
+
+  if (isPending) return <Loader />;
 
   if (!isPending)
     return (
@@ -283,8 +287,20 @@ function CustomerContactDetailsForm() {
           )}
 
           <FormRow>
-            <Button variation="primary" additionalStyles="px-4">
-              {!customer.id ? "Save address" : " Deliver to this address "}
+            <Button
+              variation="primary"
+              additionalStyles="px-4"
+              onDisabled={isWorking}
+            >
+              {!isWorking ? (
+                !customer.id ? (
+                  "Save address"
+                ) : (
+                  " Deliver to this address "
+                )
+              ) : (
+                <Spinner />
+              )}
             </Button>
           </FormRow>
         </form>

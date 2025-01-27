@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useUser } from "../authentication/useUser";
 import { useUpdateMyProfile } from "../authentication/useUpdateMe";
 import Heading from "../../ui/Heading";
+import Loader from "../../ui/Loader";
+import Spinner from "../../ui/Spinner";
 
 function MyProfileForm() {
   const [isUpdateSession, setIsUpdateSession] = useState(false);
@@ -29,6 +31,8 @@ function MyProfileForm() {
       updateMyProfile({ ...data }, { onSuccess: setIsUpdateSession(false) });
     }
   }
+
+  if (isPending) return <Loader />;
 
   return (
     <div className="flex flex-col gap-8 justify-self-center">
@@ -61,10 +65,18 @@ function MyProfileForm() {
           <Button
             variation="primary"
             size="large"
-            disabled={isWorking}
             additionalStyles="px-4"
+            onDisabled={isWorking}
           >
-            {!isUpdateSession ? "Edit My Profile" : "Update My Profile"}
+            {!isWorking ? (
+              !isUpdateSession ? (
+                "Edit My Profile"
+              ) : (
+                "Update My Profile"
+              )
+            ) : (
+              <Spinner />
+            )}
           </Button>
         </FormRow>
       </form>

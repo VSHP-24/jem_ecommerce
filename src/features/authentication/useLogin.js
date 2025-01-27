@@ -1,9 +1,9 @@
+import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { login as loginApi } from "../../services/apiAuth";
-import { useDispatch } from "react-redux";
 import { loggedIn } from "../user/userSlice";
 
 export function useLogin() {

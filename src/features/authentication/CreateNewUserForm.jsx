@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
+import Spinner from "../../ui/Spinner";
 
 import { useCreateNewUser } from "./useCreateNewUser";
 
@@ -84,8 +85,12 @@ function CreateNewUserForm() {
       </NavLink>
 
       <FormRow>
-        <Button variation="primary" additionalStyles="px-4">
-          Create Account
+        <Button
+          variation="primary"
+          additionalStyles="px-4"
+          onDisabled={isPending}
+        >
+          {!isPending ? "Create Account" : <Spinner />}
         </Button>
       </FormRow>
     </form>

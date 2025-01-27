@@ -12,6 +12,7 @@ import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
 import { calculateOfferPercentage, formatCurrency } from "../../utils/helpers";
 import { useGetProducts } from "./useGetProducts";
 import PageNotFound from "../../pages/PageNotFound";
+import Loader from "../../ui/Loader";
 
 function ProductDP() {
   const { product } = useParams();
@@ -25,7 +26,7 @@ function ProductDP() {
   currentQuantity = useSelector(getCurrentQuantityById(selectedProduct?.id));
   const isInCart = currentQuantity > 0;
 
-  if (isPending) return null;
+  if (isPending) return <Loader />;
 
   if (!isPending && !selectedProduct) return <PageNotFound />;
 

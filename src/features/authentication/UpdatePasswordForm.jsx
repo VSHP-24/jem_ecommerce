@@ -3,6 +3,7 @@ import { useUpdatePassword } from "./useUpdatePassword";
 import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
 import Heading from "../../ui/Heading";
+import Spinner from "../../ui/Spinner";
 
 function UpdatePasswordForm() {
   const { updatePassword, isPending } = useUpdatePassword();
@@ -80,8 +81,9 @@ function UpdatePasswordForm() {
             size="large"
             disabled={isPending}
             additionalStyles="px-4"
+            onDisabled={isPending}
           >
-            Update Password
+            {!isPending ? "Update Password" : <Spinner />}
           </Button>
         </FormRow>
       </form>

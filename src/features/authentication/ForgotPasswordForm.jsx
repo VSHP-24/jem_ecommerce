@@ -1,10 +1,14 @@
 import { useForm } from "react-hook-form";
+
 import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
+
 import { useForgotPassword } from "./useForgotPassword";
+import Spinner from "../../ui/Spinner";
 
 function ForgotPasswordForm() {
   const { forgotPassword, isPending } = useForgotPassword();
+
   const {
     register,
     handleSubmit,
@@ -32,8 +36,12 @@ function ForgotPasswordForm() {
       </FormRow>
 
       <FormRow>
-        <Button variation="primary" additionalStyles="px-4">
-          Send Password Reset Link
+        <Button
+          variation="primary"
+          additionalStyles="px-4"
+          onDisabled={isPending}
+        >
+          {!isPending ? "Send Password Reset Link" : <Spinner />}
         </Button>
       </FormRow>
     </form>

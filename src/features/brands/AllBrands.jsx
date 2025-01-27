@@ -1,9 +1,12 @@
 import Heading from "../../ui/Heading";
+import Loader from "../../ui/Loader";
 import BrandsDisplayCard from "./BrandsDisplayCard";
 import { useGetBrands } from "./useGetBrands";
 
 function AllBrands() {
   const { isPending, brands } = useGetBrands();
+
+  if (isPending) return <Loader />;
 
   if (!isPending)
     return (
