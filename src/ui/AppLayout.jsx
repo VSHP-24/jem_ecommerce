@@ -10,7 +10,6 @@ import BreadCrumbTrail from "./BreadCrumbTrail";
 import { useUser } from "../features/authentication/useUser";
 import { loggedIn } from "../features/user/userSlice";
 import CartIcon from "../features/cart/CartIcon";
-import PageLoader from "./PageLoader";
 
 function AppLayout() {
   const { isPending, user, isAuthenticated } = useUser();
@@ -23,7 +22,6 @@ function AppLayout() {
     },
     [isAuthenticated, isPending, dispatch, user],
   );
-  if (isPending) return <PageLoader />;
 
   return (
     <div className="grid h-dvh w-dvw max-w-[40rem] grid-rows-[5rem_2rem_1fr_1fr] justify-self-center overflow-y-scroll tablet:max-w-[50rem] laptopL:max-w-[90rem] laptopL:grid-rows-[5rem_5rem_2rem_1fr_1fr] desktop:max-w-[100rem]">
