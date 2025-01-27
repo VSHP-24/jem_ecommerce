@@ -76,42 +76,40 @@ function Filter({ filtersList, onHandleShowFilter }) {
               <ul className="pr-8">
                 {filter.filterOptions.map((option) => {
                   return (
-                    option.products.length > 0 && (
-                      <li
-                        key={option.id}
-                        className="flex gap-1 text-base laptopS:text-lg"
-                      >
-                        <input
-                          type="checkbox"
-                          id={option.id}
-                          name={option.name}
-                          className="cursor-pointer accent-black"
-                          disabled={
-                            filter.parentElement &&
-                            !(
-                              searchParams
-                                .get(filter.parentElement)
-                                ?.split(",") ||
-                              searchParams.get(filter.parentElement) ||
-                              []
-                            ).includes(
-                              option[filter?.parentElement].slug ||
-                                option[filter?.parentElement].id,
-                            )
-                          }
-                          // IF FILTER IDs ARE IN SEARCHPARAMS , IT WILL BE CHECKED AUTOMATICALLY
-                          checked={searchParams
-                            ?.get(filter.filterfield)
-                            ?.includes(
-                              `${option.slug ? option.slug : option.id}`,
-                            )}
-                          onChange={() =>
-                            handleOptionClick(filter.filterfield, option)
-                          }
-                        />
-                        <label htmlFor={option.name}>{option.name}</label>
-                      </li>
-                    )
+                    <li
+                      key={option.id}
+                      className="flex gap-1 text-base laptopS:text-lg"
+                    >
+                      <input
+                        type="checkbox"
+                        id={option.id}
+                        name={option.name}
+                        className="cursor-pointer accent-black"
+                        disabled={
+                          filter.parentElement &&
+                          !(
+                            searchParams
+                              .get(filter.parentElement)
+                              ?.split(",") ||
+                            searchParams.get(filter.parentElement) ||
+                            []
+                          ).includes(
+                            option[filter?.parentElement].slug ||
+                              option[filter?.parentElement].id,
+                          )
+                        }
+                        // IF FILTER IDs ARE IN SEARCHPARAMS , IT WILL BE CHECKED AUTOMATICALLY
+                        checked={searchParams
+                          ?.get(filter.filterfield)
+                          ?.includes(
+                            `${option.slug ? option.slug : option.id}`,
+                          )}
+                        onChange={() =>
+                          handleOptionClick(filter.filterfield, option)
+                        }
+                      />
+                      <label htmlFor={option.name}>{option.name}</label>
+                    </li>
                   );
                 })}
               </ul>

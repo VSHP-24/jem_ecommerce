@@ -11,6 +11,7 @@ import DeleteItem from "../cart/DeleteItem";
 import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
 import { calculateOfferPercentage, formatCurrency } from "../../utils/helpers";
 import { useGetProducts } from "./useGetProducts";
+import PageNotFound from "../../pages/PageNotFound";
 
 function ProductDP() {
   const { product } = useParams();
@@ -25,6 +26,8 @@ function ProductDP() {
   const isInCart = currentQuantity > 0;
 
   if (isPending) return null;
+
+  if (!isPending && !selectedProduct) return <PageNotFound />;
 
   const {
     id,

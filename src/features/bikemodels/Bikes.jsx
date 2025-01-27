@@ -1,7 +1,8 @@
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Heading from "../../ui/Heading";
 import BikesDisplayCard from "./BikesDisplayCard";
 import { useGetModels } from "./useGetModels";
+import PageNotFound from "../../pages/PageNotFound";
 
 function Bikes() {
   const { isPending, models } = useGetModels();
@@ -16,7 +17,7 @@ function Bikes() {
     brand &&
     !models.find((model) => model.brand.slug === brand)
   )
-    return <Navigate replace to="/page-not-found" />;
+    return <PageNotFound />;
 
   //////////////////////////////////////////////
   // IF EVERYTHING IS RIGHT , THE PAGE LOADS

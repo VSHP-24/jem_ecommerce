@@ -16,6 +16,7 @@ import { useGetModels } from "../bikemodels/useGetModels";
 import { useGetCategories } from "../categories/useGetCategories";
 import { useGetSubCategories } from "../subCategories/useGetSubCategories";
 import { PAGE_SIZE } from "../../utils/constants";
+import PageNotFound from "../../pages/PageNotFound";
 
 function AllProducts() {
   const [filterIsExpanded, setFilterIsExpanded] = useState(false);
@@ -149,7 +150,7 @@ function AllProducts() {
           filteredSubCategories.includes(product.subCategory.slug)),
     );
 
-    pageCount = Math.ceil(availableProductsFiltered.length / PAGE_SIZE);
+    pageCount = Math.ceil(availableProductsFiltered.length / PAGE_SIZE) || 1;
   }
 
   // IF SEARCHPARAMS PAGE IS GREATER THAN EXISTING PAGE COUNTS, PAGE WILL BE REDIRECTED TO FIRST PAGE OF THE TABLE
@@ -171,7 +172,7 @@ function AllProducts() {
           product.subCategory.slug === subcategory),
     )
   )
-    return <Navigate replace to="/page-not-found" />;
+    return <PageNotFound />;
 
   //////////////////////////////////////////////
   // IF EVERYTHING IS RIGHT , THE PAGE LOADS

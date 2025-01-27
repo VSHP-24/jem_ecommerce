@@ -1,7 +1,8 @@
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetSubCategories } from "./useGetSubCategories";
 import Heading from "../../ui/Heading";
 import SubCategoryDisplayCard from "./SubCategoryDisplayCard";
+import PageNotFound from "../../pages/PageNotFound";
 
 function SubCategories() {
   const { isPending, subCategories } = useGetSubCategories();
@@ -16,7 +17,7 @@ function SubCategories() {
     category &&
     !subCategories.find((subCategory) => subCategory.category.slug === category)
   )
-    return <Navigate replace to="/page-not-found" />;
+    return <PageNotFound />;
 
   //////////////////////////////////////////////
   // IF EVERYTHING IS RIGHT , THE PAGE LOADS
