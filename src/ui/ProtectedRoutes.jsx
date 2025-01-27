@@ -12,7 +12,9 @@ function ProtectedRoutes() {
 
   useEffect(
     function () {
-      if (!isAuthenticated && !userDetails.id && !isPending) navigate("/login");
+      if (!isAuthenticated && !userDetails.id && !isPending) {
+        navigate("/login", { replace: true });
+      }
     },
     [isAuthenticated, isPending, navigate, userDetails.id],
   );
