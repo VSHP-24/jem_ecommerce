@@ -8,7 +8,7 @@ import Spinner from "../../ui/Spinner";
 import { useLogin } from "./useLogin";
 
 function LoginForm() {
-  let { login, isPending } = useLogin();
+  const { login, isPending } = useLogin();
 
   const {
     register,

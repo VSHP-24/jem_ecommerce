@@ -21,7 +21,7 @@ function OrderHistory() {
   const [sortIsExpanded, setSortIsExpanded] = useState(false);
   const [searchParams] = useSearchParams();
 
-  let { isPending, orders } = useGetOrders();
+  const { isPending, orders } = useGetOrders();
 
   // THIS FUNCTION HELPS IN EXPANDING AND CLOSING THE FILTER
   const showFilter = () => setFilterIsExpanded((cur) => !cur);

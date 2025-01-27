@@ -11,7 +11,7 @@ import { formatCurrency, formatDate, formatStatus } from "../../utils/helpers";
 
 function OrderDP() {
   const { orderId } = useParams();
-  let { isPending, orders } = useGetOrders();
+  const { isPending, orders } = useGetOrders();
 
   let order;
 
