@@ -161,7 +161,7 @@ function OrderHistory() {
         {
           <>
             <SortIcon
-              styles=" absolute bottom-40 right-5 flex flex-col gap-4 "
+              styles=" absolute bottom-52 right-5 flex flex-col gap-4 "
               onHandleShowSort={showSort}
             />
             {sortIsExpanded && (
@@ -172,7 +172,7 @@ function OrderHistory() {
             )}
 
             <FilterIcon
-              styles=" absolute bottom-20 right-5 flex flex-col gap-4 "
+              styles=" absolute bottom-32 right-5 flex flex-col gap-4 "
               onHandleShowFilter={showFilter}
             />
             {filterIsExpanded && (

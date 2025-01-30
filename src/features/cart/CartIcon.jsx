@@ -9,7 +9,7 @@ function CartIcon() {
   return (
     <NavLink
       to="cart"
-      className="absolute bottom-2 right-5 flex h-fit w-fit items-center justify-center rounded-full bg-primary-400 p-4"
+      className="absolute bottom-14 right-5 flex h-fit w-fit items-center justify-center rounded-full bg-primary-400 p-4"
     >
       <HiOutlineShoppingCart />
 
