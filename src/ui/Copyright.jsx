@@ -7,9 +7,11 @@ function Copyright() {
       <p>{`© ${currentYear}, All Rights Reserved `}</p>
       <p>
         {`Developed by `}
-        <NavLink target="_blank" to="https://vshp.dev/">
-          VSHP
-        </NavLink>
+        <strong className="text-xl font-extrabold">
+          <NavLink target="_blank" to="https://vshp.dev/">
+            VSHP
+          </NavLink>
+        </strong>
       </p>
     </div>
   );
