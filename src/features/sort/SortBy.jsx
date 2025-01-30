@@ -19,7 +19,7 @@ function SortBy({ sortByOptions, onHandleShowSort }) {
       className="absolute bottom-48 right-12 z-30 h-fit w-fit translate-y-0 gap-4 rounded-2xl bg-primary-300 p-6 transition"
     >
       <ul className="pr-8">
-        {sortByOptions.map((option) => {
+        {sortByOptions.map((option, i) => {
           return (
             <li
               key={option.value}
@@ -32,7 +32,7 @@ function SortBy({ sortByOptions, onHandleShowSort }) {
                 value={option.value}
                 className="cursor-pointer accent-black"
                 onChange={handleChange}
-                checked={sortBy === option.value}
+                checked={sortBy === option.value || (!sortBy && i === 0)}
               />
               <label htmlFor={option.label}>{option.label}</label>
             </li>
