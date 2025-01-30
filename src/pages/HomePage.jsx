@@ -25,7 +25,7 @@ function HomePage() {
       </Heading>
 
       <img
-        src="/jembrandimage.png"
+        src="/jembrandimage.webp"
         alt="JEM Brand Representation"
         className="object-center laptopS:col-start-2 laptopS:row-start-1 laptopS:row-end-3"
       />

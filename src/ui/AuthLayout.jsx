@@ -21,7 +21,7 @@ function AuthLayout() {
     <div className="relative flex items-center justify-center">
       <img
         className="-z-10 h-dvh opacity-40"
-        src="/jembrandimage.png"
+        src="/jembrandimage.webp"
         alt="JEM Brand Representation"
       />
       <div className="absolute w-60 laptopS:w-[30rem]">

@@ -12,7 +12,7 @@ function CategoriesDisplayCard({ category }) {
       <div className="bg-primary-200">
         <img
           className="h-40 w-40"
-          src={`${category.name}.png`}
+          src={`${category.name}.webp`}
           alt={`${category.name} JEM`}
         />
       </div>

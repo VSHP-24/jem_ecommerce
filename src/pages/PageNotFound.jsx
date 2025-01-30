@@ -19,7 +19,7 @@ function PageNotFound() {
       </div>
 
       <img
-        src="/broken_down_bike.gif"
+        src="/broken_down_bike.webp"
         alt="Broken Down Bike"
         className="absolute -bottom-10 -right-5 -z-10 h-[20rem] w-[80rem] self-end opacity-35 laptopS:h-[40rem]"
       />

@@ -1,7 +1,7 @@
 function PageLoader() {
   return (
     <div className="flex h-screen w-screen items-center justify-center">
-      <img src="./bike-loading.gif" alt="Person Riding a Bike" />
+      <img src="./bike-loading.webp" alt="Person Riding a Bike" />
     </div>
   );
 }

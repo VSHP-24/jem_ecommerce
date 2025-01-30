@@ -16,7 +16,7 @@ function SubCategoryDisplayCard({ subCategory }) {
       <div className="bg-primary-200">
         <img
           className="h-40 w-40"
-          src={`/${subCategory.slug}.png`}
+          src={`/${subCategory.slug}.webp`}
           alt={`${subCategory.name} JEM`}
         />
       </div>

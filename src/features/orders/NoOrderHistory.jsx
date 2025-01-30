@@ -4,7 +4,7 @@ function NoOrderHistory() {
   return (
     <div className="flex flex-col items-center justify-center gap-4 text-primary-400">
       <img
-        src="/BikerWaving.png"
+        src="/BikerWaving.webp"
         className="h-60 w-60"
         alt="Kid Biker Waving"
       />
