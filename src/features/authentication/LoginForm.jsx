@@ -7,7 +7,7 @@ import Spinner from "../../ui/Spinner";
 
 import { useLogin } from "./useLogin";
 
-function LoginForm() {
+function LoginForm({ selectedUser }) {
   const { login, isPending } = useLogin();
 
   const {
@@ -17,6 +17,9 @@ function LoginForm() {
     reset,
   } = useForm({
     defaultValues: { email: "goku@jem.com", password: "custpass@123" },
+    values: {
+      email: `${selectedUser ? `${selectedUser}@jem.com` : "goku@jem.com"}`,
+    },
   });
 
   async function onSubmit(data) {
