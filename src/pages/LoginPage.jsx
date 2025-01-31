@@ -10,11 +10,17 @@ function LoginPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <Heading as="h4" styles="text-lg tablet:text-xl self-center  ">
+      <Heading
+        as="h4"
+        styles="text-lg tablet:text-xl text-center self-center  "
+      >
         Login to your account
       </Heading>
       <LoginForm selectedUser={selectedUser} />
-      <Heading as="h4" styles="text-lg tablet:text-xl self-center  ">
+      <Heading
+        as="h4"
+        styles="text-lg tablet:text-xl self-center text-center  "
+      >
         Select Customer Profile
       </Heading>
       <div

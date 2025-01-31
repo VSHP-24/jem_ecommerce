@@ -32,13 +32,13 @@ function HomePage() {
 
       <div className="m-5 flex items-center justify-center gap-5 self-start laptopS:mt-10">
         <Button variation="secondary" to="collection" additionalStyles="px-4">
-          <p className="align-center justify-center text-xs tablet:text-base laptopS:text-sm laptopL:text-base">
+          <p className="align-center justify-center text-center text-xs tablet:text-base laptopS:text-sm laptopL:text-base">
             VIEW COLLECTION
           </p>
         </Button>
 
         <Button variation="primary" to="products" additionalStyles="px-4">
-          <p className="align-center justify-center text-xs tablet:text-base laptopS:text-sm laptopL:text-base">
+          <p className="align-center justify-center text-center text-xs tablet:text-base laptopS:text-sm laptopL:text-base">
             SHOP PRODUCTS
           </p>
         </Button>
