@@ -81,8 +81,8 @@ function AllProducts() {
     { value: "category-desc", label: "Sort by Category ( Z - A )" },
     { value: "subCategory-asc", label: "Sort by SubCategory ( A - Z )" },
     { value: "subCategory-desc", label: "Sort by SubCategory ( Z - A )" },
-    { value: "price-asc", label: "Sort by Price ( Low --> High )" },
-    { value: "price-desc", label: "Sort by Price ( High --> Low )" },
+    { value: "price-asc", label: "Sort by Price ( Low - High )" },
+    { value: "price-desc", label: "Sort by Price ( High - Low )" },
   ];
 
   // THESE GETS THE VALUES FROM SEARCHPARAMS , IF ANY FILTERS ARE SELECTED

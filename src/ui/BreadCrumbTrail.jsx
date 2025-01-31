@@ -10,7 +10,7 @@ function BreadCrumbTrail() {
     .filter((path) => !Object.values(params).includes(path));
 
   return (
-    <div className="mx-5 my-5 flex items-center gap-2 text-sm text-primary-100">
+    <div className="mx-2 my-5 flex items-center justify-start text-xs text-primary-100">
       <Button to="/">HOME</Button>
       <span> {`>`} </span>
       {paths.map((path, i) => {

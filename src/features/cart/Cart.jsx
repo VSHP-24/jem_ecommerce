@@ -27,7 +27,7 @@ function Cart() {
           <Button
             variation="secondary"
             onClick={() => dispatch(clearCart())}
-            additionalStyles="mt-4 w-36 h-10 text-sm tablet:text-lg tablet:w-44 text-black"
+            additionalStyles="mt-4 w-36 h-10 text-sm tablet:text-lg tablet:w-44 text-primary-300"
           >
             ❌ Clear Cart
           </Button>

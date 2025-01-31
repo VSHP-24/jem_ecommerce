@@ -18,12 +18,12 @@ function SortBy({ sortByOptions, onHandleShowSort }) {
       ref={ref}
       className="absolute bottom-48 right-12 z-30 h-fit w-fit translate-y-0 gap-4 rounded-2xl bg-primary-300 p-6 transition"
     >
-      <ul className="pr-8">
+      <ul className="flex flex-col gap-1 pr-8">
         {sortByOptions.map((option, i) => {
           return (
             <li
               key={option.value}
-              className="flex gap-1 text-base laptopS:text-lg"
+              className="flex gap-1 text-xs laptopS:text-lg"
             >
               <input
                 type="radio"
