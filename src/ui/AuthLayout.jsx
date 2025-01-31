@@ -18,13 +18,13 @@ function AuthLayout() {
   );
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex h-full items-center justify-center">
       <img
-        className="-z-10 h-dvh opacity-40"
+        className="absolute -z-10 h-full opacity-40"
         src="/jembrandimage.webp"
         alt="JEM Brand Representation"
       />
-      <div className="absolute w-60 laptopS:w-[30rem]">
+      <div className="w-60 laptopS:w-[30rem]">
         <Outlet />
       </div>
     </div>
