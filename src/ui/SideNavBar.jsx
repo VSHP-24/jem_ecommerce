@@ -7,18 +7,18 @@ import sideNavBarList from "../utils/sideNavBarList";
 
 function SideNavBar({ showSidebar }) {
   return (
-    <div className="absolute left-0 top-0 z-30 flex h-full w-full translate-y-0 flex-col items-start gap-20 bg-primary-300 p-10 transition laptopL:hidden">
+    <div className="absolute left-0 top-0 z-30 flex h-dvh w-dvw translate-y-0 flex-col items-start justify-between bg-primary-300 p-4 transition laptopL:hidden">
       <button className="self-end text-3xl text-black" onClick={showSidebar}>
         <IoCloseSharp />
       </button>
 
-      <ul className="flex flex-col gap-8 text-2xl font-medium">
+      <ul className="flex flex-col justify-between text-lg font-medium">
         {sideNavBarList.map((item) => (
           <li key={item.label} className="text-black">
             <Button
               to={item.path}
               onClick={showSidebar}
-              additionalStyles=" hover:underline font-medium text-xl focus:underline active:underline "
+              additionalStyles=" hover:underline font-medium text-base focus:underline active:underline "
             >
               {item.label}
             </Button>

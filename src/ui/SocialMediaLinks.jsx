@@ -5,9 +5,9 @@ import Heading from "./Heading";
 
 function SocialMediaLinks({ showSidebar, colors = "text-black" }) {
   return (
-    <div className={"flex flex-col gap-5 text-2xl font-bold " + colors}>
+    <div className={"flex flex-col gap-5 text-xl font-bold " + colors}>
       <Heading as="h6">Follow Us</Heading>
-      <div className="flex items-center gap-5 text-3xl">
+      <div className="flex items-center gap-5 text-2xl">
         <NavLink
           onClick={showSidebar}
           target="_blank"
