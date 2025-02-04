@@ -1,3 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply m-0 box-border tracking-widest;
+  }
+
+  html {
+    font-family: "Dosis", system-ui, serif;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply hyphens-auto break-words;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffd20a;
+    border-radius: 0.25rem;
+  }
+}
+
+@layer components {
+  form {
+    @apply max-w-full rounded-2xl border-2 border-primary-500 bg-primary-300/85 p-5;
+  }
+
+  input,
+  textarea {
+    @apply rounded-xl border-2 border-primary-500 bg-primary-200 px-3 py-2 font-medium disabled:cursor-not-allowed disabled:bg-primary-600;
+  }
+}
