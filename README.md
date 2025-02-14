@@ -2,8 +2,6 @@
 
 After developing an internal application for data management, the next step was to create a customer-facing e-commerce website. This platform allows customers to browse and purchase motorcycle accessories, while seamlessly integrating with internal backend system.
 
-[![Quick Walkthrough of the application](https://img.youtube.com/vi/6CYmLGq_9Bo/0.jpg)](https://www.youtube.com/watch?v=6CYmLGq_9Bo)
-
 ## Key Features
 
 - **User Authentication**: Customers can sign up, log in, and update their profiles with secure password management.
